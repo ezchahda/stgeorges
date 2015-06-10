@@ -104,9 +104,8 @@
 								//dir = dir.getParentFile();
 						        //dir = dir.getParentFile();
 						        //String path = dir.toString();
-						        String path = "http://stgeorge-makcms.rhcloud.com/data/";
+						        String path = "http:////stgeorge-makcms.rhcloud.com//data//";
 						        //path = path + "data/" ;
-								//out.println(path);
 						        File dir = new File(path);
 						        out.println(dir);
 						        String[] files = dir.list();
