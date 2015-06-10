@@ -103,7 +103,7 @@
 						<%
 						ServletContext context = session.getServletContext();
 						String realContextPath = context.getRealPath(request.getContextPath()); 
-							out.println(realContextPath);
+							out.println(context);
 						%>
 						<br/><br/><br/>
 						<!--  </ul> -->
