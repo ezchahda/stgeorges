@@ -103,27 +103,8 @@
 						<%
 							out.println(request.getSession());
 							out.println(request.getSession().getServletContext());
-					        File dir = new File(request.getSession().getServletContext().getRealPath(request.getServletPath()));
-					        if(dir != null){
-							dir = dir.getParentFile();
-					        dir = dir.getParentFile();
-					        String path = dir.toString(); 
-					        path = path + "\\data" ;
-					        dir = new File(path);
-							String[] files = dir.list();
-							if(files!=null){
-								for(int i=0;i<files.length;i++){
-								%>
-									<li id="image-<%=i%>" ref="<%out.println(files[i]);%>" class="thumbnail">
-										<a	title="<%out.println(files[i]);%>" 
-											href="../data/<%out.println(files[i]);%>">
-											
-											<img id="thumb-<%out.println(files[i]);%>" class="grayscale" src="../data/<%out.println(files[i]);%>" alt="<%out.println(files[i]);%>">
-										</a>
-									</li>
-								<%}
-							}
-					        }
+							out.println(request.getSession().getServletContext().getRealPath(request.getServletPath()));
+						//insert code here
 						%>
 						</ul>
 						</div>
