@@ -101,6 +101,8 @@
 					<div class="box-content">
 						<ul class="thumbnails gallery">
 						<%
+							out.println(request.getSession());
+							out.println(request.getSession().getServletContext());
 					        File dir = new File(request.getSession().getServletContext().getRealPath(request.getServletPath()));
 					        if(dir != null){
 							dir = dir.getParentFile();
