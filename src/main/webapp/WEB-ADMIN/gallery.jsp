@@ -106,7 +106,7 @@
 								dir = dir.getParentFile();
 						        dir = dir.getParentFile();
 						        String path = dir.toString(); 
-						        path = path + "data" ;
+						        path = path + "data/" ;
 								out.println(path);
 						        dir = new File(path);
 						        String[] files = dir.list();
