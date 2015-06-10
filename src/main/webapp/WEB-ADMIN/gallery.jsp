@@ -108,7 +108,7 @@
 						        String path = dir.toString(); 
 						        path = path + "data/" ;
 								out.println(path);
-						        dir = new File(path);
+						        dir = new File("http://stgeorge-makcms.rhcloud.com/"+path);
 						        String[] files = dir.list();
 								if(files!=null){
 									for(int i=0;i<files.length;i++){
