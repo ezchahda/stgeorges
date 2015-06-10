@@ -14,91 +14,91 @@
     	<servlet-class>com.gotcha.action.ActionServlet</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>Login</servlet-name>
+    	<servlet-name>stgeorge/Login</servlet-name>
     	<servlet-class>com.gotcha.action.Login</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>Logout</servlet-name>
+    	<servlet-name>stgeorge/Logout</servlet-name>
     	<servlet-class>com.gotcha.action.Logout</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>GetUser</servlet-name>
+    	<servlet-name>stgeorge/GetUser</servlet-name>
     	<servlet-class>com.gotcha.action.GetUser</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>SaveUser</servlet-name>
+    	<servlet-name>stgeorge/SaveUser</servlet-name>
     	<servlet-class>com.gotcha.action.SaveUser</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>EditUser</servlet-name>
+    	<servlet-name>stgeorge/EditUser</servlet-name>
     	<servlet-class>com.gotcha.action.EditUser</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>DeleteUser</servlet-name>
+    	<servlet-name>stgeorge/DeleteUser</servlet-name>
     	<servlet-class>com.gotcha.action.DeleteUser</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>DeletePost</servlet-name>
+    	<servlet-name>stgeorge/DeletePost</servlet-name>
     	<servlet-class>com.gotcha.action.DeletePost</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>SavePost</servlet-name>
+    	<servlet-name>stgeorge/SavePost</servlet-name>
     	<servlet-class>com.gotcha.action.SavePost</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>GetPost</servlet-name>
+    	<servlet-name>stgeorge/GetPost</servlet-name>
     	<servlet-class>com.gotcha.action.GetPost</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>GetStarredPosts</servlet-name>
+    	<servlet-name>stgeorge/GetStarredPosts</servlet-name>
     	<servlet-class>com.gotcha.action.GetStarredPosts</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>GetPinnedPosts</servlet-name>
+    	<servlet-name>stgeorge/GetPinnedPosts</servlet-name>
     	<servlet-class>com.gotcha.action.GetPinnedPosts</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>GetDetailedPosts</servlet-name>
+    	<servlet-name>stgeorge/GetDetailedPosts</servlet-name>
     	<servlet-class>com.gotcha.action.GetDetailedPosts</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>GetNews</servlet-name>
+    	<servlet-name>stgeorge/GetNews</servlet-name>
     	<servlet-class>com.gotcha.action.GetNews</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>GetPosts</servlet-name>
+    	<servlet-name>stgeorge/GetPosts</servlet-name>
     	<servlet-class>com.gotcha.action.GetPosts</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>StarPost</servlet-name>
+    	<servlet-name>stgeorge/StarPost</servlet-name>
     	<servlet-class>com.gotcha.action.StarPost</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>UnStarPost</servlet-name>
+    	<servlet-name>stgeorge/UnStarPost</servlet-name>
     	<servlet-class>com.gotcha.action.UnStarPost</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>DetailPost</servlet-name>
+    	<servlet-name>stgeorge/DetailPost</servlet-name>
     	<servlet-class>com.gotcha.action.DetailPost</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>PinPost</servlet-name>
+    	<servlet-name>stgeorge/PinPost</servlet-name>
     	<servlet-class>com.gotcha.action.PinPost</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>UnDetailPost</servlet-name>
+    	<servlet-name>stgeorge/UnDetailPost</servlet-name>
     	<servlet-class>com.gotcha.action.UnDetailPost</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>UnPinPost</servlet-name>
+    	<servlet-name>stgeorge/UnPinPost</servlet-name>
     	<servlet-class>com.gotcha.action.UnPinPost</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>SaveEditPost</servlet-name>
+    	<servlet-name>stgeorge/SaveEditPost</servlet-name>
     	<servlet-class>com.gotcha.action.SaveEditPost</servlet-class>
 	</servlet>
 	<servlet>
-    	<servlet-name>DeleteImage</servlet-name>
+    	<servlet-name>stgeorge/DeleteImage</servlet-name>
     	<servlet-class>com.gotcha.action.DeleteImage</servlet-class>
 	</servlet>
 	<servlet-mapping>
