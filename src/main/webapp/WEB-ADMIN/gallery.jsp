@@ -101,14 +101,13 @@
 					<div class="box-content">
 						<ul class="thumbnails gallery">
 						<%	
-							File dir = new File(request.getServletPath());
-							if(dir != null){
-								dir = dir.getParentFile();
-						        dir = dir.getParentFile();
-						        String path = dir.toString(); 
-						        path = path + "data/" ;
-								out.println(path);
-						        dir = new File("http://stgeorge-makcms.rhcloud.com/"+path);
+								//dir = dir.getParentFile();
+						        //dir = dir.getParentFile();
+						        //String path = dir.toString();
+						        String path = "http://stgeorge-makcms.rhcloud.com/data/";
+						        //path = path + "data/" ;
+								//out.println(path);
+						        File dir = new File("http://stgeorge-makcms.rhcloud.com/"+path);
 						        String[] files = dir.list();
 								if(files!=null){
 									for(int i=0;i<files.length;i++){
@@ -122,9 +121,6 @@
 										</li>
 									<%}
 								}
-							}
-							else
-								out.println("dir is null");
 						 %>
 						  </ul>
 						</div>
