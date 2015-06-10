@@ -8,7 +8,7 @@ function deletePost(postId, postType, postTitle, postDate) {
 
 function yesDeletePost() {
 	var postId = document.getElementById("postIdDelete").innerHTML;
-	$.post('/stgeorge/DeletePost', {
+	$.post('/DeletePost', {
 		postid : postId
 	}, function(respopnseJson) {
 	}).done(function(responseJson) {
@@ -18,7 +18,7 @@ function yesDeletePost() {
 }
 
 function starThePost(postId) {
-	$.post('/stgeorge/StarPost', {
+	$.post('/StarPost', {
 		postid : postId
 	}, function(respopnseJson) {
 	}).done(
@@ -31,7 +31,7 @@ function starThePost(postId) {
 }
 
 function unStarThePost(postId) {
-	$.post('/stgeorge/UnStarPost', {
+	$.post('/UnStarPost', {
 		postid : postId
 	}, function(respopnseJson) {
 	}).done(
@@ -44,7 +44,7 @@ function unStarThePost(postId) {
 }
 
 function detailThePost(postId) {
-	$.post('/stgeorge/DetailPost', {
+	$.post('/DetailPost', {
 		postid : postId
 	}, function(respopnseJson) {
 	}).done(
@@ -57,7 +57,7 @@ function detailThePost(postId) {
 }
 
 function unDetailThePost(postId) {
-	$.post('/stgeorge/UnDetailPost', {
+	$.post('/UnDetailPost', {
 		postid : postId
 	}, function(respopnseJson) {
 	}).done(
@@ -70,7 +70,7 @@ function unDetailThePost(postId) {
 }
 
 function pinThePost(postId) {
-	$.post('/stgeorge/PinPost', {
+	$.post('/PinPost', {
 		postid : postId
 	}, function(respopnseJson) {
 	}).done(
@@ -81,7 +81,7 @@ function pinThePost(postId) {
 }
 
 function unPinThePost(postId) {
-	$.post('/stgeorge/UnPinPost', {
+	$.post('/UnPinPost', {
 		postid : postId
 	}, function(respopnseJson) {
 	}).done(
@@ -92,7 +92,7 @@ function unPinThePost(postId) {
 }
 
 function loadPostTable(){
-	$.get('/stgeorge/GetPosts',{postId:$postId},function(responseJson){})
+	$.get('/GetPosts',{postId:$postId},function(responseJson){})
     .done(function(responseJson){
     	
     	$('#posts').append('<tbody>');
@@ -136,7 +136,7 @@ function loadPostTable(){
 
 function editPost(postId,postType){
 	
-	$.get('/stgeorge/GetPost',{postId:postId,postType:postType},function(responseJson){})
+	$.get('/GetPost',{postId:postId,postType:postType},function(responseJson){})
     
 	.done(function(responseJson){
 

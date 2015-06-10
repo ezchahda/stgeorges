@@ -3,7 +3,7 @@ var $username="";
 		$(document).ready(loadUserTable());
 		
 		function loadUserTable(){
-			$.get('/stgeorge/GetUser',{username:$username},function(responseJson){})
+			$.get('/GetUser',{username:$username},function(responseJson){})
 		    .done(function(responseJson){
 			
 				$(responseJson).each(function(index, element){  
@@ -34,7 +34,7 @@ var $username="";
 		
 	    $(document).ready(function() {
 	        $('#logout_btn').click(function(event) {
-	            $.post('/stgeorge/Logout',{},function(responseJson){})
+	            $.post('/Logout',{},function(responseJson){})
 	            .done(function(responseJson){
 	                document.location.href="login.html";
 	            });
@@ -42,7 +42,7 @@ var $username="";
 	    });
 
 	    function saveUser(){
-				$.post('/stgeorge/SaveUser',{username:$username},function(responseJson){})
+				$.post('/SaveUser',{username:$username},function(responseJson){})
 			    .done(function(responseJson){
 			    	refreshUserTable(responseJson);
 			});
@@ -71,7 +71,7 @@ var $username="";
 	    
 	    function okDeleteUser(userName, userFullName){
 
-			$.post('/stgeorge/DeleteUser',{username:userName}, function(respopnseJson){});
+			$.post('/DeleteUser',{username:userName}, function(respopnseJson){});
 			var row = document.getElementById("TR"+userName);
 			row.parentNode.removeChild(row);
 		}

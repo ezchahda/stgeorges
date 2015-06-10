@@ -3,7 +3,7 @@ var currentThumb;
 $(document).ready(function() {
 		    
 	        $('#logout_btn').click(function(event) {
-	            $.post('/stgeorge/Logout',{},function(responseJson){})
+	            $.post('/Logout',{},function(responseJson){})
 	            .done(function(responseJson){
 	                document.location.href="login.html";
 	            });
@@ -116,7 +116,7 @@ $(document).ready(function() {
 					return;                       
                }
             });
-		//$.post('/stgeorge/DeleteImage',{imageRef:imageRef}, function(respopnseJson){});
+		//$.post('/DeleteImage',{imageRef:imageRef}, function(respopnseJson){});
 	}
 
 	function noDeleteImage(){
