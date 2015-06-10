@@ -163,7 +163,7 @@
         	var $username=$("#username").val();
         	var $password=$("#password").val();  
 		
-            $.get('/stgeorge/Login',{username:$username, password:$password},function(responseJson){})
+            $.get('/Login',{username:$username, password:$password},function(responseJson){})
             .always(function(){document.getElementById("informaDiv").innerHTML = " Loading ..."})
             .done(function(responseJson){
                 $.each(responseJson, function(key, value) {

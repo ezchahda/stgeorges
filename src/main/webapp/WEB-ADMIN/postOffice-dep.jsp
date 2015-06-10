@@ -153,7 +153,7 @@ if(userName == null) response.sendRedirect("login.html");
 						 
 						<div id="myTabContent" class="tab-content">
 							<div class="tab-pane active" id="blog">
-								<form class="form-horizontal" action="/stgeorge/SavePost" method="POST" enctype="multipart/form-data">
+								<form class="form-horizontal" action="/SavePost" method="POST" enctype="multipart/form-data">
 								  <fieldset>
 									<legend>Add new Blog</legend>
 									<div class="control-group">
@@ -198,7 +198,7 @@ if(userName == null) response.sendRedirect("login.html");
 							</div>
 
 							<div class="tab-pane" id="news">
-								<form class="form-horizontal" action="/stgeorge/SavePost" method="post">
+								<form class="form-horizontal" action="/SavePost" method="post">
 								  <fieldset>
 									<legend>Publish Some News</legend>
 									<div class="control-group">
@@ -239,7 +239,7 @@ if(userName == null) response.sendRedirect("login.html");
 							</div>
 							
 							<div class="tab-pane" id="prayer">
-								<form class="form-horizontal" action="/stgeorge/SavePost" method="post">
+								<form class="form-horizontal" action="/SavePost" method="post">
 								  <fieldset>
 									<legend>Preach the word</legend>
 									<div class="control-group">
@@ -375,7 +375,7 @@ if(userName == null) response.sendRedirect("login.html");
 	<script type="text/javascript">
     $(document).ready(function() {
         $('#logout_btn').click(function(event) {
-            $.post('/stgeorge/Logout',{},function(responseJson){})
+            $.post('/Logout',{},function(responseJson){})
             .done(function(responseJson){
                 document.location.href="login.html";
             });

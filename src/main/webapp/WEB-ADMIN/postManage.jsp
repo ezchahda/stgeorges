@@ -98,7 +98,7 @@
 				<h3>Edit Post: <span id="editedPost" ></span></h3>
 			</div>
 			<div class="modal-body">
-				<form class="form-horizontal" id="editPostForm" action="/stgeorge/SaveEditPost" method="POST" enctype="multipart/form-data">
+				<form class="form-horizontal" id="editPostForm" action="/SaveEditPost" method="POST" enctype="multipart/form-data">
 								  <fieldset>
 								  	<div class="control-group">
 									  <label class="control-label">Post Id</label>
@@ -232,7 +232,7 @@
 			loadPostTable();
 		
 	        $('#logout_btn').click(function(event) {
-	            $.post('/stgeorge/Logout',{},function(responseJson){})
+	            $.post('/Logout',{},function(responseJson){})
 	            .done(function(responseJson){
 	                document.location.href="login.html";
 	            });

@@ -86,7 +86,7 @@
 							 
 							<div id="myTabContent" class="tab-content">
 								<div class="tab-pane active" id="blog">
-									<form class="form-horizontal" action="/stgeorge/SavePost" method="POST" enctype="multipart/form-data">
+									<form class="form-horizontal" action="/SavePost" method="POST" enctype="multipart/form-data">
 									  <fieldset>
 										<div class="control-group">
 										  <label class="control-label" for="typeahead"> Title</label>
@@ -152,7 +152,7 @@
 							</div>
 						</div>
 							<div class="box-content">
-							<form class="form-horizontal" action="/stgeorge/SaveUser" method="post">
+							<form class="form-horizontal" action="/SaveUser" method="post">
 							  <fieldset>
 								
 								<div class="control-group">
@@ -244,7 +244,7 @@
 	<script type="text/javascript">
     $(document).ready(function() {
         $('#logout_btn').click(function(event) {
-            $.post('/stgeorge/Logout',{},function(responseJson){})
+            $.post('/Logout',{},function(responseJson){})
             .done(function(responseJson){
                 document.location.href="login.html";
             });

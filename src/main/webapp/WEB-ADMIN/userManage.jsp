@@ -97,7 +97,7 @@
 						</div>
 						
 						<div class="box-content">
-							<form class="form-horizontal" action="/stgeorge/SaveUser" method="post">
+							<form class="form-horizontal" action="/SaveUser" method="post">
 							  <fieldset>
 								<div class="control-group">
 									<label class="control-label" for="typeahead">User Email</label>
@@ -147,7 +147,7 @@
 				<h3>Edit User: <span id="editedUser" ></span></h3>
 			</div>
 			<div class="modal-body">
-				<form class="form-horizontal" action="/stgeorge/EditUser" method="post" name="editUserForm" id="editUserForm">
+				<form class="form-horizontal" action="/EditUser" method="post" name="editUserForm" id="editUserForm">
 				  <fieldset>
 					<div class="control-group">
 						<label class="control-label" for="typeahead">User Email</label>

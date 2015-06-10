@@ -95,7 +95,7 @@
 		$(document).ready(loadPosts());
 		
 		function loadPosts(){
-			$.get('/stgeorge/GetNews',{postId:$postId},function(responseJson){})
+			$.get('/GetNews',{postId:$postId},function(responseJson){})
 			
 		    .done(function(responseJson){
 				$(responseJson).each(function(index, element){  
@@ -122,7 +122,7 @@
 			
 		    });
 
-		    $.get('/stgeorge/GetPinnedPosts',{},function(responseJson){})
+		    $.get('/GetPinnedPosts',{},function(responseJson){})
 
 		    .done(function(responseJson){ $(responseJson).each(function(index,element){	
 

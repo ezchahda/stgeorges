@@ -98,7 +98,7 @@
 		$(document).ready(loadPosts());
 		
 		function loadPosts(){
-			$.get('/stgeorge/GetPost',{postId:$postId,postType:'Blog'},function(responseJson){})
+			$.get('/GetPost',{postId:$postId,postType:'Blog'},function(responseJson){})
 		    .done(function(responseJson){
 
 		    BigJSON = responseJson;

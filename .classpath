@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_60">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/commons-fileupload-1.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/dsn.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/gimap.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/gson-2.2.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/gson-2.2.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/imap.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/mailapi.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/mysql-connector-java-5.1.26-bin.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/org.apache.commons.io_1.3.2.v20080604-1500.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/pop3.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/smtp.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="C:/stgeorge/src/main/webapp/WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
+</classpath>

@@ -101,7 +101,7 @@
 		
 		function loadPosts(){
 			var rowDiv = "";
-			$.get('/stgeorge/GetPost',{postId:$postId,postType:'Prayer'},function(responseJson){})
+			$.get('/GetPost',{postId:$postId,postType:'Prayer'},function(responseJson){})
 		    .done(function(responseJson){
 				$(responseJson).each(function(index, element){
 					if(index == 0){
