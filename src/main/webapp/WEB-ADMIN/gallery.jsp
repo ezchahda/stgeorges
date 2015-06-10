@@ -108,6 +108,10 @@
 							out.println(request.getSession().getServletContext());
 						 %>
 						 <br/><br/><br/>
+						<%	
+							out.println(request.getServletPath());
+						 %>
+						 <br/><br/><br/>
 						<%
 							out.println(request.getSession().getServletContext().getRealPath(request.getServletPath()));
 						 %>
