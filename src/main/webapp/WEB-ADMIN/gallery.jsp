@@ -108,16 +108,16 @@
 						        //path = path + "data/" ;
 						        File dir = new File(path);
 						        out.println(dir);
-						        String[] files = dir.list();
+						        File[] files = dir.listFiles();
 						        out.println(files);
 								if(files!=null){
 									for(int i=0;i<files.length;i++){
 									%>
-										<li id="image-<%=i%>" ref="<%out.println(files[i]);%>" class="thumbnail">
+										<li id="image-<%=i%>" ref="<%out.println(files[i].getName());%>" class="thumbnail">
 											<a	title="<%out.println(files[i]);%>" 
-												href="../data/<%out.println(files[i]);%>">
+												href="../data/<%out.println(files[i].getName());%>">
 												
-												<img id="thumb-<%out.println(files[i]);%>" class="grayscale" src="../data/<%out.println(files[i]);%>" alt="<%out.println(files[i]);%>">
+												<img id="thumb-<%out.println(files[i].getName());%>" class="grayscale" src="../data/<%out.println(files[i].getName());%>" alt="<%out.println(files[i].getName());%>">
 											</a>
 										</li>
 									<%}
