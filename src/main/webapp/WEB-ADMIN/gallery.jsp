@@ -101,21 +101,11 @@
 					<div class="box-content">
 						<!-- <ul class="thumbnails gallery"> -->
 						<%
-							out.println(request.getSession());
+						ServletContext context = session.getServletContext();
+						String realContextPath = context.getRealPath(request.getContextPath()); 
+							out.println(realContextPath);
 						%>
 						<br/><br/><br/>
-						<%	
-							out.println(request.getSession().getServletContext());
-						 %>
-						 <br/><br/><br/>
-						<%	
-							out.println(request.getServletPath());
-						 %>
-						 <br/><br/><br/>
-						<%
-							out.println(request.getSession().getServletContext().getRealPath(request.getServletPath()));
-						 %>
-						 <br/><br/><br/>
 						<!--  </ul> -->
 						</div>
 					</div>
