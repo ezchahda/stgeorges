@@ -101,7 +101,7 @@
 					<div class="box-content">
 						<ul class="thumbnails gallery">
 						<%	
-						        String path = "./data";
+						        String path = request.getServletPath();
 						        File dataFolder = new File(path);
 						        out.println(dataFolder);
 						        
