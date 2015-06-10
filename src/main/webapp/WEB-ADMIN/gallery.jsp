@@ -102,7 +102,8 @@
 						<ul class="thumbnails gallery">
 						<%
 					        File dir = new File(request.getSession().getServletContext().getRealPath(request.getServletPath()));
-					        dir = dir.getParentFile();
+					        if(dir != null){
+							dir = dir.getParentFile();
 					        dir = dir.getParentFile();
 					        String path = dir.toString(); 
 					        path = path + "\\data" ;
@@ -120,6 +121,7 @@
 									</li>
 								<%}
 							}
+					        }
 						%>
 						</ul>
 						</div>
