@@ -104,7 +104,7 @@
 								//dir = dir.getParentFile();
 						        //dir = dir.getParentFile();
 						        //String path = dir.toString();
-						        String path = "stgeorge-makcms.rhcloud.com//data//";
+						        String path = "./data";
 						        //path = path + "data/" ;
 						        File dataFolder = new File(path);
 						        File[] files = dataFolder.listFiles();
