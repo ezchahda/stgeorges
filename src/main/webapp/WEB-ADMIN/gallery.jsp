@@ -106,8 +106,8 @@
 								dir = dir.getParentFile();
 						        dir = dir.getParentFile();
 						        String path = dir.toString(); 
-								out.println(path);
 						        path = path + "\\data" ;
+								out.println(path);
 						        dir = new File(path);
 						        String[] files = dir.list();
 								if(files!=null){
