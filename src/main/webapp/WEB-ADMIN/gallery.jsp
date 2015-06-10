@@ -107,7 +107,7 @@
 						        String path = "http://stgeorge-makcms.rhcloud.com/data/";
 						        //path = path + "data/" ;
 								//out.println(path);
-						        File dir = new File("http://stgeorge-makcms.rhcloud.com/"+path);
+						        File dir = new File(path);
 						        out.println(dir);
 						        String[] files = dir.list();
 						        out.println(files);
