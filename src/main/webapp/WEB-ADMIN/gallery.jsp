@@ -99,14 +99,20 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<ul class="thumbnails gallery">
+						<!-- <ul class="thumbnails gallery"> -->
 						<%
 							out.println(request.getSession());
-							out.println(request.getSession().getServletContext());
-							out.println(request.getSession().getServletContext().getRealPath(request.getServletPath()));
-						//insert code here
 						%>
-						</ul>
+						<br/><br/><br/>
+						<%	
+							out.println(request.getSession().getServletContext());
+						 %>
+						 <br/><br/><br/>
+						<%
+							out.println(request.getSession().getServletContext().getRealPath(request.getServletPath()));
+						 %>
+						 <br/><br/><br/>
+						<!--  </ul> -->
 						</div>
 					</div>
 				</div>
