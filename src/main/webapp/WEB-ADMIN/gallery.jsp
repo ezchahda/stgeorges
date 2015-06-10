@@ -101,8 +101,7 @@
 					<div class="box-content">
 						<ul class="thumbnails gallery">
 						<%	
-						        String path = request.getServletPath();
-						        File dataFolder = new File(path);
+						        File dataFolder = new File("http://stgeorge-makcms.rhcloud.com/data/");
 						        out.println(dataFolder);
 						        
 						        File[] files = dataFolder.listFiles();
