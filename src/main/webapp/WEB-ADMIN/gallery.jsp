@@ -106,11 +106,11 @@
 								dir = dir.getParentFile();
 						        dir = dir.getParentFile();
 						        String path = dir.toString(); 
+								out.println(path);
 						        path = path + "\\data" ;
 						        dir = new File(path);
 						        String[] files = dir.list();
 								if(files!=null){
-									out.println("here");
 									for(int i=0;i<files.length;i++){
 									%>
 										<li id="image-<%=i%>" ref="<%out.println(files[i]);%>" class="thumbnail">
@@ -123,6 +123,8 @@
 									<%}
 								}
 							}
+							else
+								out.println("dir is null");
 						 %>
 						  </ul>
 						</div>
