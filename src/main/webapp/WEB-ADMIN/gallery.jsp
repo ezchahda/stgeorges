@@ -104,11 +104,10 @@
 								//dir = dir.getParentFile();
 						        //dir = dir.getParentFile();
 						        //String path = dir.toString();
-						        String path = "http:////stgeorge-makcms.rhcloud.com//data//";
+						        String path = "stgeorge-makcms.rhcloud.com//data//";
 						        //path = path + "data/" ;
-						        File dir = new File(path);
-						        out.println(dir);
-						        File[] files = dir.listFiles();
+						        File dataFolder = new File(path);
+						        File[] files = dataFolder.listFiles();
 						        out.println(files);
 								if(files!=null){
 									for(int i=0;i<files.length;i++){
