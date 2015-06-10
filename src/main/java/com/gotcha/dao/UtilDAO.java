@@ -1,5 +1,6 @@
 package com.gotcha.dao;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Enumeration;
+import java.util.Properties;
 
 import com.gotcha.vo.PostVO;
 import com.gotcha.vo.UserVO;
@@ -172,9 +175,32 @@ public class UtilDAO {
 	private Connection connectDB() {
 		Connection connection = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection(
-					"jdbc:mysql://localhost/stgeorge", "root", "");
+			InputStream input = this.getClass().getClassLoader().getResourceAsStream("db.properties");
+			Properties properties = new Properties();
+			properties.load(input);
+			input.close();
+			String dbname = "";
+			String dbhost = "";
+			String dbuser = "";
+			String dbpass = "";
+			
+			Enumeration enuKeys = properties.keys();
+			while (enuKeys.hasMoreElements()) {
+				String key = (String) enuKeys.nextElement();
+				String value = properties.getProperty(key);
+				if(key.equals("dbname"))
+					dbname = value;
+				if(key.equals("dbhost"))
+					dbhost = value;
+				if(key.equals("dbuser"))
+					dbuser = value;
+				if(key.equals("dbpass"))
+					dbpass = value;
+			}
+	    	
+	    	
+	    	Class.forName("com.mysql.jdbc.Driver");
+	    	connection = DriverManager.getConnection("jdbc:mysql://"+dbhost+"/"+dbname,dbuser,dbpass);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
