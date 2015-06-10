@@ -101,12 +101,10 @@
 					<div class="box-content">
 						<ul class="thumbnails gallery">
 						<%	
-								//dir = dir.getParentFile();
-						        //dir = dir.getParentFile();
-						        //String path = dir.toString();
 						        String path = "./data";
-						        //path = path + "data/" ;
 						        File dataFolder = new File(path);
+						        out.println(dataFolder);
+						        
 						        File[] files = dataFolder.listFiles();
 						        out.println(files);
 								if(files!=null){
