@@ -101,9 +101,7 @@
 					<div class="box-content">
 						<!-- <ul class="thumbnails gallery"> -->
 						<%
-						ServletContext context = session.getServletContext();
-						String realContextPath = context.getRealPath(request.getContextPath()); 
-							out.println(context);
+						out.println(request.getRealPath("/"));
 						%>
 						<br/><br/><br/>
 						<!--  </ul> -->
