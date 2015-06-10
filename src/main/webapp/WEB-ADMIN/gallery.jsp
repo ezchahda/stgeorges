@@ -100,10 +100,19 @@
 					</div>
 					<div class="box-content">
 						<!-- <ul class="thumbnails gallery"> -->
-						<%
-						out.println(request.getRealPath("/"));
-						%>
-						<br/><br/><br/>
+						<%	
+							out.println(request.getServletPath());
+							File dir = new File(request.getServletPath());
+							if(dir != null){
+								dir = dir.getParentFile();
+						        dir = dir.getParentFile();
+						        String path = dir.toString(); 
+						        path = path + "\\data" ;
+						        dir = new File(path);
+							}
+						 %>
+						 <br/><br/><br/>
+						 <br/><br/><br/>
 						<!--  </ul> -->
 						</div>
 					</div>
