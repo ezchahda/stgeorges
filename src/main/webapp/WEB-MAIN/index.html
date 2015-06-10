@@ -34,11 +34,11 @@
                         <div class="col-md-10 col-sm-6 col-xs-2">
                             <div class="main-menu" >
                                 <ul class="visible-lg visible-md" >
-                                    <li><a href="Contact.html">تواصل معنا</a></li>
-                                    <li><a href="Prayer.html">صلوات</a></li>
-                                    <li><a href="Blog.html">تعرّف على الكنيسة</a></li>
-                                    <li><a href="News.html">أخبار الرعية</a></li>
-                                    <li class="active"><a href=index.html">رعية القديس جاورجيوس | البترون</a></li>
+                                    <li><a href="Contact.html">????? ????</a></li>
+                                    <li><a href="Prayer.html">?????</a></li>
+                                    <li><a href="Blog.html">????? ??? ???????</a></li>
+                                    <li><a href="News.html">????? ??????</a></li>
+                                    <li class="active"><a href=index.html">???? ?????? ???????? | ???????</a></li>
                                 </ul>
                                 <a href="#" class="toggle-menu visible-sm visible-xs">
                                     <i class="fa fa-bars"></i>
@@ -49,30 +49,30 @@
                 </div>
                 <div class="row">
 					<div class="visible-sm visible-xs respTitle">
-                		<span>رعية القديس جاورجيوس | البترون</span>
+                		<span>???? ?????? ???????? | ???????</span>
                 	</div>
                     <div class="col-md-12 visible-sm visible-xs">
                         <div class="menu-responsive" >
                             <ul>
-                                <li class="active"><a href="index.html">رعية القديس جاورجيوس</a></li>
-                                <li><a href="News.html">أخبار الرعية</a></li>
-                                <li><a href="Blog.html">تعرّف على الكنيسة</a></li>
-                                <li><a href="Prayer.html">صلوات</a></li>
-                                <li><a href="Contact.html">تواصل معنا</a></li>
+                                <li class="active"><a href="index.html">???? ?????? ????????</a></li>
+                                <li><a href="News.html">????? ??????</a></li>
+                                <li><a href="Blog.html">????? ??? ???????</a></li>
+                                <li><a href="Prayer.html">?????</a></li>
+                                <li><a href="Contact.html">????? ????</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-		
+
 		 <div class="page-top visible-sm visible-xs" id="templatemo_index"></div>
-		
+
         <div class="flexslider visible-lg" >
         	<ul class='slides' id="sliderDiv"></ul>
-       	</div> 
-        
-        
+       	</div>
+
+
         <div class="container">
             <div class="row">
                 <div class="our-listing owl-carousel"></div>
@@ -82,21 +82,21 @@
 		<div class="middle-content"></div>
 
         <div class="site-footer" id="footerContent"></div>
-        
+
 	    <script src="js/vendor/jquery-1.11.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
         <script type="text/javascript">
 			$(document).ready( function(){
-				
-			$.get('/stgeorge/GetStarredPosts',{},function(responseJson){})
+
+			$.get('/GetStarredPosts',{},function(responseJson){})
 		    .done(function(responseJson){
 
 				$(responseJson).each(function(index, element){
 
 					var rowLi   = "";
-					
-					if(element.postImage == null || element.postImage == "null") 
-						element.postImage = "defaultSlide.jpg"; 
+
+					if(element.postImage == null || element.postImage == "null")
+						element.postImage = "defaultSlide.jpg";
 
 					var theContent = element.postContent.substring(0,888);
 					if (isArabic(theContent))
@@ -107,9 +107,9 @@
 					rowLi = '<li class="">';
 					if(index==0)
 						rowLi = '<li class="felx-active-slide">';
-					
+
 						rowLi+= '<img src="../data/'+element.postImage+'" height="700" width="1600" alt="Slide'+index+'"/>'
-							
+
 	                		+'<div class="container">'
 		                			+'<div class="row">'
 		                				+'<div class="col-md-5 col-lg-4">'
@@ -121,17 +121,17 @@
 	                								+theContent
                 								+'</p>'
                									+'<a href=\''+element.postType+'.html?'+element.postId+'\'" class="slider-btn">'
-               									+'المزيد'
+               									+'??????'
                									+'</a>'
               									+'</div>'
              									+'</div>'
           								+'</div>'
           							+'</div>'
           						+'</li>';
-          						
+
           						$("#sliderDiv").append(rowLi);
 				});
-				
+
 				$('.flexslider').flexslider({
 				    animation: "fade",
 				    controlNav: false,
@@ -141,24 +141,24 @@
 		    });
 
 
-			$.get('/stgeorge/GetDetailedPosts',{},function(responseJson){})
+			$.get('/GetDetailedPosts',{},function(responseJson){})
 		    .done(function(responseJson){
 					var numItems = 0;
 				$(responseJson).each(function(index, element){
 					var rowDiv   = "";
 
-					if(element.postImage == null || element.postImage == "null") 
-						element.postImage = "defaultPin.jpg"; 
+					if(element.postImage == null || element.postImage == "null")
+						element.postImage = "defaultPin.jpg";
 
 					var theContent = element.postContent.substring(0,888);
 
 					/*
 					if (isArabic(theContent))
-					 theContent = theContent+"<a> المزيد </a>";
+					 theContent = theContent+"<a> ?????? </a>";
 					else
 						theContent += "<a> more </a>";
 					*/
-					
+
 					rowDiv += '<div class="list-item" onClick="document.location.href=\''+element.postType+'.html?'+element.postId+'\'" style="cursor:pointer">'
                     			+ '<div class="list-thumb">'
 	                    			+ '<div class="title">'
@@ -177,7 +177,7 @@
 				});
 
 				numItems = numItems >4 ? 4 : numItems;
-				
+
 				$(".our-listing").owlCarousel({
 					items: numItems,
 					navigation: true,
@@ -193,13 +193,13 @@
 
 
 		function htmlDecode(input){
-			if(input){	
+			if(input){
 			  var e = document.createElement('div');
 			  e.innerHTML = input;
 			  return e.childNodes[0].nodeValue;
 			}
 		}
-			
+
 		function isArabic(str){
 			var arabic = /[\u0600-\u06FF]/
 			var x = htmlDecode(str);
