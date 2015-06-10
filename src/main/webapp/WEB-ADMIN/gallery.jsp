@@ -109,6 +109,7 @@
 								//out.println(path);
 						        File dir = new File("http://stgeorge-makcms.rhcloud.com/"+path);
 						        String[] files = dir.list();
+						        out.println(files);
 								if(files!=null){
 									for(int i=0;i<files.length;i++){
 									%>
