@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"> <!--<![endif]-->
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>St Georges | Batroun</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/templatemo_misc.css">
+        <link rel="stylesheet" href="css/templatemo_style.css">
+        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        <script src="js/vendor/jquery-1.11.0.min.js"></script>
+        <script>
+        	window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>');
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <div class="site-header">
+            <div class="container">
+                <div class="main-header">
+                    <div class="row" >
+                        <div class="col-md-2 col-sm-6 col-xs-10">
+                            <div class="logo">
+                                <a rel="nofollow" href="#">
+                                    <img class="logoImage visible-lg visible-md" src="images/logo.gif" title="St George">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-sm-6 col-xs-2">
+                            <div class="main-menu" >
+                                <ul class="visible-lg visible-md" >
+                                    <li><a href="Contact.html">تواصل معنا</a></li>
+                                    <li><a href="Prayer.html">صلوات</a></li>
+                                    <li class="active"><a href="Blog.html">تعرّف على الكنيسة</a></li>
+                                    <li><a href="News.html">أخبار الرعية</a></li>
+                                    <li><a href="index.html">رعية القديس جاورجيوس | البترون</a></li>
+                                </ul>
+                                <a href="#" class="toggle-menu visible-sm visible-xs">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                	<div class="visible-sm visible-xs respTitle">
+                		<span>تعرّف على الكنيسة</span>
+                	</div>
+                    <div class="col-md-12 visible-sm visible-xs">
+                        <div class="menu-responsive" >
+                            <ul>
+                                <li><a href="index.html">رعية القديس جاورجيوس | البترون</a></li>
+                                <li><a href="News.html">أخبار الرعية</a></li>
+                                <li class="active"><a href="Blog.html">تعرّف على الكنيسة</a></li>
+                                <li><a href="Prayer.html">صلوات</a></li>
+                                <li><a href="Contact.html">تواصل معنا</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-top" id="templatemo_blog"></div>
+
+        <div class="middle-content blog-content">
+            <div class="container">
+            	<div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8 search-bar">
+						    <input id="submit" type="submit" value="ابحث" onclick="filterPosts()">
+						    <input id="search" type="text" placeholder="أكتب هنا">
+					</div>
+					<div class="col-md-2"></div>
+            	</div>
+            </div>
+            <div class="container" id="container">
+            </div>
+        </div> 
+
+        <div class="site-footer" id="footerContent"></div>
+
+        <script type="text/javascript">
+		var $postId = "";
+
+		var BigJSON;
+		
+		$(document).ready(loadPosts());
+		
+		function loadPosts(){
+			$.get('/stgeorge/GetPost',{postId:$postId,postType:'Blog'},function(responseJson){})
+		    .done(function(responseJson){
+
+		    BigJSON = responseJson;
+			loadJsonIntoContainer(responseJson);
+				
+			var scrollToId = window.location.href;
+			if(scrollToId.indexOf("?")>0){
+				scrollToId = scrollToId.split("?")[1];
+			    $('html, body').animate({
+			        scrollTop: $("#"+scrollToId).offset().top
+			        }, 1000);
+			}
+		});
+		}
+
+		function clearJsonContainer(){
+			document.getElementById('container').innerHTML = "";
+		}
+		
+		function loadJsonIntoContainer(jsonObj){
+			
+			$(jsonObj).each(function(index, element){  
+				var yesImage = true;
+				var rowDiv   = "";
+				if(element.postImage == null || element.postImage == "null") 
+					yesImage = false; 
+
+				rowDiv = '<div class="row" id="'+element.postId+'">'+
+	                		'<div class="visible-lg visible-md col-md-2"></div>'+
+		                    '<div class="col-md-8 blog-box">'+
+		                        '<div class="widget-item">'+
+		                            '<div class="post-small" style="margin-top:15px;margin-bottom:15px">'+
+			                            	'<div class="post-date">'+
+			                                    '<span class="time">'+element.postDay+'</span>'+
+			                                    '<span>'+getArabicMonth(element.postMonth)+'</span>'+
+			                                '</div>'+
+			                                '<div class="post-content">'+
+						                           ' <ul class="social-icons visible-lg" style="text-align: left;">'+
+						                            	'<li>Share<a href="#" class="fa fa-facebook"></a></li>'+
+						                            	'<li>Tweet<a href="#" class="fa fa-twitter"></a></li>'+
+						                        	'</ul>'+
+			                                    '<h4 class="visible-lg blog-title-lg"><a href="#">'+element.postTitle+'</a></h4>'+
+			                                    '<h4 class="visible-sm visible-xs visible-md"><a href="#">'+element.postTitle+'</a></h4>'+
+			                                    '<h3 class="blog-type-title">'+element.postSubType+'</h3>'+
+		                                	'</div>'+
+		                            '</div>';
+		                            
+						if(yesImage){
+		                  rowDiv += '<div class="sample-thumb">'+
+		                                '<img src="../data/'+element.postImage+'" />'+
+		                            '</div>'+
+		                            '<h4 class="consult-title">'+element.postSubType+" : "+element.postTitle+'</h4>';
+						}
+						
+		                rowDiv +=  '<p class="consult-content">'+
+										element.postContent+
+									'</p>'+
+									'<ul class="social-icons visible-xs visible-sm visible-md" style="text-align: left;">'+
+						                	'<li>Share<a href="#" class="fa fa-facebook"></a></li>'+
+						                   	'<li>Tweet<a href="#" class="fa fa-twitter"></a></li>'+
+		                      		'</ul>'+
+			                     '</div>'+
+			                    '</div>'+
+								'<div class="visible-lg visible-md col-md-2 separator"></div>'+
+			                  '</div>';
+				$('#container').append(rowDiv);
+			});
+		}
+		
+		function filterPosts(){
+			var filterQuery = document.getElementById('search').value;
+
+			if(filterQuery.length<1){
+				clearJsonContainer();
+				loadJsonIntoContainer(BigJSON);
+				return;
+			}
+			
+			clearJsonContainer();
+
+			var tempJSON = BigJSON ;
+			
+			tempJSON = $.grep( tempJSON, function( n, i ) {
+				  return (n.postTitle.indexOf(filterQuery)>0 || n.postContent.indexOf(filterQuery)>0 || n.postSubType.indexOf(filterQuery)>0)
+			});
+
+			loadJsonIntoContainer(tempJSON)
+		}
+
+		document.getElementById("search").addEventListener( "keydown", function( e ) {
+		    var keyCode = e.keyCode || e.which;
+		    filterPosts();
+		    if ( keyCode === 13 ) {
+		       // enter pressed
+		       filterPosts();
+		    }
+		}, false);
+		
+		</script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>St Georges | Batroun</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/templatemo_misc.css">
+        <link rel="stylesheet" href="css/templatemo_style.css">
+        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+        <div class="site-header">
+            <div class="container">
+                <div class="main-header">
+                    <div class="row" >
+                        <div class="col-md-2 col-sm-6 col-xs-10">
+                            <div class="logo">
+                                <a rel="nofollow" href="#">
+                                    <img class="logoImage visible-lg visible-md" src="images/logo.gif" title="St George">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-sm-6 col-xs-2">
+                            <div class="main-menu" >
+                                <ul class="visible-lg visible-md" >
+                                    <li><a href="Contact.html">تواصل معنا</a></li>
+                                    <li><a href="Prayer.html">صلوات</a></li>
+                                    <li><a href="Blog.html">تعرّف على الكنيسة</a></li>
+                                    <li><a href="News.html">أخبار الرعية</a></li>
+                                    <li class="active"><a href=index.html">رعية القديس جاورجيوس | البترون</a></li>
+                                </ul>
+                                <a href="#" class="toggle-menu visible-sm visible-xs">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+					<div class="visible-sm visible-xs respTitle">
+                		<span>رعية القديس جاورجيوس | البترون</span>
+                	</div>
+                    <div class="col-md-12 visible-sm visible-xs">
+                        <div class="menu-responsive" >
+                            <ul>
+                                <li class="active"><a href="index.html">رعية القديس جاورجيوس</a></li>
+                                <li><a href="News.html">أخبار الرعية</a></li>
+                                <li><a href="Blog.html">تعرّف على الكنيسة</a></li>
+                                <li><a href="Prayer.html">صلوات</a></li>
+                                <li><a href="Contact.html">تواصل معنا</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		 <div class="page-top visible-sm visible-xs" id="templatemo_index"></div>
+		
+        <div class="flexslider visible-lg" >
+        	<ul class='slides' id="sliderDiv"></ul>
+       	</div> 
+        
+        
+        <div class="container">
+            <div class="row">
+                <div class="our-listing owl-carousel"></div>
+            </div>
+        </div>
+
+		<div class="middle-content"></div>
+
+        <div class="site-footer" id="footerContent"></div>
+        
+	    <script src="js/vendor/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script type="text/javascript">
+			$(document).ready( function(){
+				
+			$.get('/stgeorge/GetStarredPosts',{},function(responseJson){})
+		    .done(function(responseJson){
+
+				$(responseJson).each(function(index, element){
+
+					var rowLi   = "";
+					
+					if(element.postImage == null || element.postImage == "null") 
+						element.postImage = "defaultSlide.jpg"; 
+
+					var theContent = element.postContent.substring(0,888);
+					if (isArabic(theContent))
+					 theContent = "..."+theContent;
+					else
+						theContent += "...";
+
+					rowLi = '<li class="">';
+					if(index==0)
+						rowLi = '<li class="felx-active-slide">';
+					
+						rowLi+= '<img src="../data/'+element.postImage+'" height="700" width="1600" alt="Slide'+index+'"/>'
+							
+	                		+'<div class="container">'
+		                			+'<div class="row">'
+		                				+'<div class="col-md-5 col-lg-4">'
+		                					+'<div class="flex-caption visible-lg">'
+		                						+'<h3 class="title">'
+		                							+element.postTitle
+	                							+'</h3>'
+	                							+'<p>'
+	                								+theContent
+                								+'</p>'
+               									+'<a href=\''+element.postType+'.html?'+element.postId+'\'" class="slider-btn">'
+               									+'المزيد'
+               									+'</a>'
+              									+'</div>'
+             									+'</div>'
+          								+'</div>'
+          							+'</div>'
+          						+'</li>';
+          						
+          						$("#sliderDiv").append(rowLi);
+				});
+				
+				$('.flexslider').flexslider({
+				    animation: "fade",
+				    controlNav: false,
+				    prevText: "&larr;",
+				    nextText: "&rarr;"
+				});
+		    });
+
+
+			$.get('/stgeorge/GetDetailedPosts',{},function(responseJson){})
+		    .done(function(responseJson){
+					var numItems = 0;
+				$(responseJson).each(function(index, element){
+					var rowDiv   = "";
+
+					if(element.postImage == null || element.postImage == "null") 
+						element.postImage = "defaultPin.jpg"; 
+
+					var theContent = element.postContent.substring(0,888);
+
+					/*
+					if (isArabic(theContent))
+					 theContent = theContent+"<a> المزيد </a>";
+					else
+						theContent += "<a> more </a>";
+					*/
+					
+					rowDiv += '<div class="list-item" onClick="document.location.href=\''+element.postType+'.html?'+element.postId+'\'" style="cursor:pointer">'
+                    			+ '<div class="list-thumb">'
+	                    			+ '<div class="title">'
+										+ '<h4>'+element.postTitle+'</h4>'
+									+ '</div>'
+									+ '<img src="../data/'+element.postImage+'" alt="" width="270" height="auto">'
+								+ '</div>'
+	                        	+ '<div class="list-content" style="">'
+	                        		+ '<span>'
+	                        		+ theContent
+	                        		+ '</span>'
+	                        	+ '</div>'
+                            + '</div>';
+					$(".our-listing").append(rowDiv);
+					numItems++;
+				});
+
+				numItems = numItems >4 ? 4 : numItems;
+				
+				$(".our-listing").owlCarousel({
+					items: numItems,
+					navigation: true,
+					navigationText: ["&larr;","&rarr;"],
+				    afterInit : function(elem){
+				      var that = this
+				      that.owlControls.prependTo(elem)
+				    }
+				});
+
+		    });
+		});
+
+
+		function htmlDecode(input){
+			if(input){	
+			  var e = document.createElement('div');
+			  e.innerHTML = input;
+			  return e.childNodes[0].nodeValue;
+			}
+		}
+			
+		function isArabic(str){
+			var arabic = /[\u0600-\u06FF]/
+			var x = htmlDecode(str);
+			if(arabic.test(x))
+				return true;
+			return false;
+		}
+		</script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
