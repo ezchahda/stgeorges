@@ -102,10 +102,8 @@
 						<ul class="thumbnails gallery">
 						<%	
 						        File dataFolder = new File("http://stgeorge-makcms.rhcloud.com/data/");
-						        out.println(dataFolder);
-						        
 						        File[] files = dataFolder.listFiles();
-						        out.println(files);
+						        out.println("Under construction");
 								if(files!=null){
 									for(int i=0;i<files.length;i++){
 									%>
