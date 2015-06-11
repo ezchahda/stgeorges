@@ -17,6 +17,9 @@
 		String img 		= request.getParameter("encodeimg");
 		String imgSrc 	= request.getParameter("imgSrc");
 		
+		if(imgSrc.contains("/uploads/"))
+			imgSrc.replace("/uploads/","");
+		
 		String encodingPrefix = "base64,";
 		
 		int contentStartIndex = img.indexOf(encodingPrefix) + encodingPrefix.length();
