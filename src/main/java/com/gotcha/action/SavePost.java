@@ -1,10 +1,8 @@
 package com.gotcha.action;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -21,7 +19,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import com.gotcha.bo.UtilBO;
 
-@MultipartConfig
+@MultipartConfig(location="/var/lib/openshift/5577c4bb5973ca46b70001e9/app-root/data")
 public class SavePost extends HttpServlet {
 
 	private static final long serialVersionUID = 2857847752169838915L;
@@ -76,7 +74,7 @@ public class SavePost extends HttpServlet {
 					os.flush();
 					is.close();
 					os.close();
-					post_image = System.getenv("OPENSHIFT_DATA_DIR")+fileName;
+					post_image = fileName;
 				}
 
 			}
