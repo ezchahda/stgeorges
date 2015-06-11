@@ -20,6 +20,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FilenameUtils;
  
 @WebServlet(name = "uploads",urlPatterns = {"/uploads/*"})
 @MultipartConfig
@@ -32,36 +35,64 @@ public class Uploads extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
  
     PrintWriter out = response.getWriter();
-    for (Part part : request.getParts()) {
-    	
-    	out.println(part.getContentType()+"\n");
-    	
-    	if (part.getContentType() == "text") {
-			String paramName = part.getName();
-			String paramValue = part.getInputStream().toString();
-
-			if (paramName != null) {
-
-				if (paramName.equals("postTitle"))paramName=paramName;
-					//out.println(paramName + " was saved to " + paramValue);
-			}
-    	}
-    	else{
-    		
-        InputStream is = request.getPart(part.getName()).getInputStream();
-        String fileName = getFileName(part);
-        FileOutputStream os = new FileOutputStream(System.getenv("OPENSHIFT_DATA_DIR") + fileName);
-        byte[] bytes = new byte[BUFFER_LENGTH];
-        int read = 0;
-        while ((read = is.read(bytes, 0, BUFFER_LENGTH)) != -1) {
-            os.write(bytes, 0, read);
+//    for (Part part : request.getParts()) {
+//    	
+//    	out.println(part.getContentType()+"\n");
+//    	
+//    	if (part.getContentType() == "text") {
+//			String paramName = part.getName();
+//			String paramValue = part.getInputStream().toString();
+//
+//			if (paramName != null) {
+//
+//				if (paramName.equals("postTitle"))paramName=paramName;
+//					//out.println(paramName + " was saved to " + paramValue);
+//			}
+//    	}
+//    	else{
+//    		
+//        InputStream is = request.getPart(part.getName()).getInputStream();
+//        String fileName = getFileName(part);
+//        FileOutputStream os = new FileOutputStream(System.getenv("OPENSHIFT_DATA_DIR") + fileName);
+//        byte[] bytes = new byte[BUFFER_LENGTH];
+//        int read = 0;
+//        while ((read = is.read(bytes, 0, BUFFER_LENGTH)) != -1) {
+//            os.write(bytes, 0, read);
+//        }
+//        os.flush();
+//        is.close();
+//        os.close();
+//        out.println(fileName + " was uploaded to " + System.getenv("OPENSHIFT_DATA_DIR"));
+//    	}
+//    }
+    try{
+    List<FileItem> items = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
+    for (FileItem item : items) {
+        if (item.isFormField()) {
+            // Process regular form field (input type="text|radio|checkbox|etc", select, etc).
+            String fieldName = item.getFieldName();
+            String fieldValue = item.getString();
+            out.println("name="+fieldName);
+            out.println("value="+fieldValue);
+        } else {
+            // Process form file field (input type="file").
+            String fieldName = item.getFieldName();
+            
+            String fileName = FilenameUtils.getName(item.getName());
+            InputStream is = item.getInputStream();
+          FileOutputStream os = new FileOutputStream(System.getenv("OPENSHIFT_DATA_DIR") + fileName);
+          byte[] bytes = new byte[BUFFER_LENGTH];
+          int read = 0;
+          while ((read = is.read(bytes, 0, BUFFER_LENGTH)) != -1) {
+              os.write(bytes, 0, read);
+          }
+          os.flush();
+          is.close();
+          os.close();
+          out.println(fileName + " was uploaded to " + System.getenv("OPENSHIFT_DATA_DIR"));
         }
-        os.flush();
-        is.close();
-        os.close();
-        //out.println(fileName + " was uploaded to " + System.getenv("OPENSHIFT_DATA_DIR"));
-    	}
     }
+    }catch(Exception x){}
   }
  
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
