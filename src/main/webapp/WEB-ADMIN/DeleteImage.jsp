@@ -17,8 +17,7 @@
 
 		String imageRef = request.getParameter("imageRef");
 
-		File f = new File(getServletContext().getRealPath("/")
-				+ "data\\" + imageRef);
+		File f = new File(System.getenv("OPENSHIFT_DATA_DIR") + imageRef);
 		if (f.delete())
 			out.println(1);
 		else

@@ -23,7 +23,7 @@
 		
 		byte[] imageData = org.apache.commons.codec.binary.Base64.decodeBase64(img.substring(contentStartIndex));
 
-		imgSrc = getServletContext().getRealPath("/")+"data\\" + imgSrc;
+		imgSrc = System.getenv("OPENSHIFT_DATA_DIR") + imgSrc;
 		
 		FileOutputStream fos=new FileOutputStream(imgSrc);
 		
