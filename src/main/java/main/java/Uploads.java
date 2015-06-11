@@ -35,7 +35,8 @@ public class Uploads extends HttpServlet {
     for (Part part : request.getParts()) {
     	
     	out.println(part.getContentType()+"\n");
-    	if (part.getContentType().contentEquals("text")) {
+    	
+    	if (part.getContentType() == "text") {
 			String paramName = part.getName();
 			String paramValue = part.getInputStream().toString();
 
