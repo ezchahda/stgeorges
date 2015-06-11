@@ -108,17 +108,17 @@
 										if(files[i].getName().charAt(0)=='.')continue;
 									%>
 										<li id="image-<%=i%>" 
-											ref="<%out.println(files[i].getName());%>" 
+											ref="uploads/<%out.println(files[i].getName());%>" 
 											class="thumbnail">
 											
-											<a	title="<%out.println(files[i]);%>" 
-												href="<%out.println(files[i].getName());%>"
+											<a	title="<%out.println(files[i]).getName;%>" 
+												href="uploads/<%out.println(files[i].getName());%>"
 												>
 												
 												<img 
 													id="thumb-<%out.println(files[i].getName());%>" 
 													class="grayscale" 
-													src="<%out.println(System.getenv("OPENSHIFT_DATA_DIR")+files[i].getName());%>" 
+													src="uploads/<%out.println(files[i].getName());%>" 
 													alt="image"
 													>
 											</a>
