@@ -118,7 +118,7 @@
 												<img 
 													id="thumb-<%out.println(files[i].getName());%>" 
 													class="grayscale" 
-													src="<%out.println(files[i].getName());%>" 
+													src="<%out.println(System.getenv("OPENSHIFT_DATA_DIR")+files[i].getName());%>" 
 													alt="image"
 													>
 											</a>
