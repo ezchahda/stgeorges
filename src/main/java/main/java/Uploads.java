@@ -34,14 +34,15 @@ public class Uploads extends HttpServlet {
     PrintWriter out = response.getWriter();
     for (Part part : request.getParts()) {
     	
-    	if (part.getContentType() == "text") {
+    	out.println(part.getContentType()+"\n");
+    	if (part.getContentType().contentEquals("text")) {
 			String paramName = part.getName();
 			String paramValue = part.getInputStream().toString();
 
 			if (paramName != null) {
 
-				if (paramName.equals("postTitle"))
-					out.println(paramName + " was saved to " + paramValue);
+				if (paramName.equals("postTitle"))paramName=paramName;
+					//out.println(paramName + " was saved to " + paramValue);
 			}
     	}
     	else{
@@ -57,7 +58,7 @@ public class Uploads extends HttpServlet {
         os.flush();
         is.close();
         os.close();
-        out.println(fileName + " was uploaded to " + System.getenv("OPENSHIFT_DATA_DIR"));
+        //out.println(fileName + " was uploaded to " + System.getenv("OPENSHIFT_DATA_DIR"));
     	}
     }
   }
