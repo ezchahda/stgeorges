@@ -50,7 +50,7 @@ $(document).ready(function() {
          
          $('#btnCrop2').on('click', function(){
         	//change box dimension to 270x200
-        	 var width=370;
+        	 var width=270;
         	 var height=200;
         	 
         	 $('.imageBox').css("width",width*1.1);
