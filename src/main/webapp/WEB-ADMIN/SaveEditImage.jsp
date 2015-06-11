@@ -26,10 +26,12 @@
 		
 		byte[] imageData = org.apache.commons.codec.binary.Base64.decodeBase64(img.substring(contentStartIndex));
 
-		imgSrc = System.getenv("OPENSHIFT_DATA_DIR") + imgSrc;
-		
-		FileOutputStream fos=new FileOutputStream(imgSrc);
-		
-		fos.write(imageData);
+		FileOutputStream os = new FileOutputStream(System
+				.getenv("OPENSHIFT_DATA_DIR")
+				+ imgSrc);
+		byte[] bytes = new byte[4096];
+		os.write(imageData, 0, imageData.length);
+		os.flush();
+		os.close();
 	}
 %>
