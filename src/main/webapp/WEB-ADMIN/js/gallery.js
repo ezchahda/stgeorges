@@ -80,7 +80,7 @@ $(document).ready(function() {
 			var ref = $(this).parents('.thumbnail').attr('ref');
 			var imageThumb = $(this).parents('.grayscale');
 			currentThumb = imageThumb;
-            options.imgSrc = "../data/"+ref;
+            options.imgSrc = "/uploads/"+ref;
             options.imgRef = ref;
             cropper = $('.imageBox').cropbox(options);
 		});
@@ -131,7 +131,7 @@ $(document).ready(function() {
                 encodeimg: img
             },
             success: function(msg){
-            		document.getElementById('thumb-'+imgSrc).src = "../data/"+imgSrc+"?random="+new Date().getTime();;
+            		document.getElementById('thumb-'+imgSrc).src = "/uploads/"+imgSrc+"?random="+new Date().getTime();;
 					currentThumb = null;
 					clearCropper();
             }
