@@ -65,6 +65,7 @@ public class SaveEditPost extends HttpServlet {
 					}
 				} else {
 
+					try{
 					String fileName = FilenameUtils.getName(item.getName());
 					InputStream is = item.getInputStream();
 					FileOutputStream os = new FileOutputStream(System
@@ -79,6 +80,9 @@ public class SaveEditPost extends HttpServlet {
 					is.close();
 					os.close();
 					post_image = fileName;
+					}catch(Exception x){
+						System.out.println("error uploading file");
+					x.printStackTrace();}
 				}
 			}
 
