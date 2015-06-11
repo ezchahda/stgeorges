@@ -16,7 +16,10 @@
 	else {
 
 		String imageRef = request.getParameter("imageRef");
-
+		
+		if(imageRef.contains("/uploads"))
+			imageRef.replace("/uploads","");
+		
 		File f = new File(System.getenv("OPENSHIFT_DATA_DIR") + imageRef);
 		if (f.delete())
 			out.println(1);
