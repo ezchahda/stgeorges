@@ -101,9 +101,9 @@
 					<div class="box-content">
 						<ul class="thumbnails gallery">
 						<%	
-						        File dataFolder = new File("http://stgeorge-makcms.rhcloud.com/data/");
+								File dataFolder = new File(System.getenv("OPENSHIFT_DATA_DIR"));
 						        File[] files = dataFolder.listFiles();
-						        out.println("Under construction");
+						        //out.println("Under construction");
 								if(files!=null){
 									for(int i=0;i<files.length;i++){
 									%>
