@@ -111,7 +111,7 @@
 											ref="uploads/<%out.println(files[i].getName());%>" 
 											class="thumbnail">
 											
-											<a	title="<%out.println(files[i]).getName;%>" 
+											<a	title="<%out.println(files[i].getName());%>" 
 												href="uploads/<%out.println(files[i].getName());%>"
 												>
 												
