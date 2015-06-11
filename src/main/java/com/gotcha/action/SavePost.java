@@ -76,7 +76,6 @@ public class SavePost extends HttpServlet {
 					os.close();
 					post_image = fileName;
 				}
-
 			}
 
 		} catch (Exception XX) {

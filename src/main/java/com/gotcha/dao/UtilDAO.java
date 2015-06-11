@@ -141,17 +141,25 @@ public class UtilDAO {
 			
 			if (postImage == null)  {checkImage=""; yesImage=false;}
 			
-			String sql = "UPDATE echo_post set post_time_stamp=?, post_type=?, post_sub_type=?, post_title=?, post_content=?, post_year=?, post_month=?, post_day=? "+checkImage+"  WHERE post_id=?;";
+			String sql = "UPDATE echo_post set " +
+					"post_time_stamp=?, " + //1
+					"post_type=?, " +		//2
+					"post_sub_type=?, " +	//3
+					"post_title=?, " +		//4
+					"post_content=?, " +	//5
+					"post_year=?, " +		//6
+					"post_month=?, " +		//7
+					"post_day=? "			//8
+					+checkImage+			//9
+					"  WHERE post_id=?;";	//9 - 10	
 			
 			PreparedStatement  stmt = connection.prepareStatement(sql);
 			
-			stmt.setTimestamp(1, currentTimeStamp);
-			
+			stmt.setTimestamp(1, currentTimeStamp);			
 			stmt.setString(2, postType);
 			stmt.setString(3, postSubType);
 			stmt.setString(4, postTitle);
 			stmt.setString(5, postContent);
-			
 			stmt.setInt(6,postYear);
 			stmt.setInt(7,postMonth);
 			stmt.setInt(8,postDay);
