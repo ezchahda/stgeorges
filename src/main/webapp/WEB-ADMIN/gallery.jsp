@@ -108,7 +108,7 @@
 										if(files[i].getName().charAt(0)=='.')continue;
 									%>
 										<li id="image-<%=i%>" 
-											ref="/uploads/<%out.println(files[i].getName());%>" 
+											ref="<%out.println(files[i].getName());%>" 
 											class="thumbnail">
 											
 											<a	title="<%out.println(files[i].getName());%>" 
