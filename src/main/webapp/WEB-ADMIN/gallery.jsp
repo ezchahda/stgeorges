@@ -103,15 +103,24 @@
 						<%	
 								File dataFolder = new File(System.getenv("OPENSHIFT_DATA_DIR"));
 						        File[] files = dataFolder.listFiles();
-						        //out.println("Under construction");
 								if(files!=null){
 									for(int i=0;i<files.length;i++){
+										if(files[i].getName().charAt(0)=='.')continue;
 									%>
-										<li id="image-<%=i%>" ref="<%out.println(files[i].getName());%>" class="thumbnail">
+										<li id="image-<%=i%>" 
+											ref="<%out.println(files[i].getName());%>" 
+											class="thumbnail">
+											
 											<a	title="<%out.println(files[i]);%>" 
-												href="../data/<%out.println(files[i].getName());%>">
+												href="<%out.println(files[i].getName());%>"
+												>
 												
-												<img id="thumb-<%out.println(files[i].getName());%>" class="grayscale" src="../data/<%out.println(files[i].getName());%>" alt="<%out.println(files[i].getName());%>">
+												<img 
+													id="thumb-<%out.println(files[i].getName());%>" 
+													class="grayscale" 
+													src="<%out.println(files[i].getName());%>" 
+													alt="image"
+													>
 											</a>
 										</li>
 									<%}
