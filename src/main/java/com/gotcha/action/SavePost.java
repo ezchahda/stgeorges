@@ -76,7 +76,7 @@ public class SavePost extends HttpServlet {
 					os.flush();
 					is.close();
 					os.close();
-					post_image = fileName;
+					post_image = System.getenv("OPENSHIFT_DATA_DIR")+fileName;
 				}
 
 			}
