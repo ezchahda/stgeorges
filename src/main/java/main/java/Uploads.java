@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.List;
  
 import javax.activation.MimetypesFileTypeMap;
 import javax.servlet.ServletException;
@@ -16,6 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
+import org.apache.commons.fileupload.FileItem;
  
 @WebServlet(name = "uploads",urlPatterns = {"/uploads/*"})
 @MultipartConfig
@@ -29,6 +33,19 @@ public class Uploads extends HttpServlet {
  
     PrintWriter out = response.getWriter();
     for (Part part : request.getParts()) {
+    	
+    	if (part.getContentType() == "text") {
+			String paramName = part.getName();
+			String paramValue = part.getInputStream().toString();
+
+			if (paramName != null) {
+
+				if (paramName.equals("postTitle"))
+					out.println(paramName + " was saved to " + paramValue);
+			}
+    	}
+    	else{
+    		
         InputStream is = request.getPart(part.getName()).getInputStream();
         String fileName = getFileName(part);
         FileOutputStream os = new FileOutputStream(System.getenv("OPENSHIFT_DATA_DIR") + fileName);
@@ -41,6 +58,7 @@ public class Uploads extends HttpServlet {
         is.close();
         os.close();
         out.println(fileName + " was uploaded to " + System.getenv("OPENSHIFT_DATA_DIR"));
+    	}
     }
   }
  
