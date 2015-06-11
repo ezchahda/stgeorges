@@ -149,6 +149,8 @@
                prefix="localhost_access_log." suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
         -->
+        
+        <Context docBase="/var/lib/openshift/5577c4bb5973ca46b70001e9/app-root/data/" path="/images" />
       </Host>
     </Engine>
   </Service>
