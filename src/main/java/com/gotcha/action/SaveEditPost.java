@@ -84,9 +84,6 @@ public class SaveEditPost extends HttpServlet {
 
 		} catch (Exception XX) {
 			System.out.println("error uploading file");
-			response.getWriter().write("error");
-			response.setContentType("text/html");
-			response.sendRedirect("WEB-ADMIN/postManage.jsp");
 			XX.printStackTrace();
 		}
 		UtilBO utilBO = new UtilBO();
