@@ -19,7 +19,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import com.gotcha.bo.UtilBO;
 
-@MultipartConfig(location="/var/lib/openshift/5577c4bb5973ca46b70001e9/app-root/data")
+@MultipartConfig(location="/var/lib/openshift/5577c4bb5973ca46b70001e9/app-root/data/")
 public class SavePost extends HttpServlet {
 
 	private static final long serialVersionUID = 2857847752169838915L;
