@@ -78,14 +78,13 @@
         <div class="middle-content prayers-content">
         	<div class="container" id="containerP" style="display:none">
         		<div class="row prayer" >
-        			<div class="col-md-2"><img id="myPrayersModalImage1" alt="+"/></div> 
-		        	<div class="col-md-8 col-sm-12">
+        			<div class="col-md-3"><img id="myPrayersModalImage1" alt="+" width="300px"/></div> 
+		        	<div class="col-md-9 col-sm-12">
                         <h5 onclick="hidePrayer()" class="widget-title col-md-6 col-sm-6" style="cursor:pointer;text-align: left;text-decoration: underline">صفحة الصلوات</h5>
                         <h3 class="widget-title col-md-6 col-sm-6" id="myPrayersModalTitle"></h3>
 			        	<span id="myPrayersModalContent" class="contact-form"></span>
 			        	<h5 onclick="hidePrayer()" class="widget-title col-md-6 col-sm-6" style="cursor:pointer;margin-top:10;text-align: left;text-decoration: underline">صفحة الصلوات</h5>
 		        	</div>
-		        	<div class="col-md-2"><img id="myPrayersModalImage2" alt="+"/></div>
         		</div>
         	</div>
         	<div class="container" id="container"></div>
@@ -139,7 +138,6 @@
 			document.getElementById("myPrayersModalTitle").innerHTML=prayerTitle;
 			document.getElementById("myPrayersModalContent").innerHTML=prayerContent;
 			document.getElementById("myPrayersModalImage1").src="/uploads/"+prayerImage;
-			document.getElementById("myPrayersModalImage2").src="/uploads/"+prayerImage;
 			if(!fromMain)
 				window.location.assign(window.location.href += '?' +prayerId);
 			else
