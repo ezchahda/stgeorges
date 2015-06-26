@@ -129,8 +129,7 @@ function loadPostTable(){
 				     			'<span class="btn btn-danger" href="#" onClick="deletePost(\''+element.postId+'\',\''+element.postType+'\',\''+element.postTitle+'\',\''+postDate+'\')"><i class="icon-trash icon-white icon32"></i></span></td></tr>');       
 		});
 		$('#posts').append('</tbody>');
-		$('#posts').DataTable({"sPaginationType": "bootstrap"});
-		$('#posts').DataTable({"aaSorting": [[ 3, "desc" ]]});
+		$('#posts').DataTable({"sPaginationType": "bootstrap","aaSorting": [[ 3, "desc" ]]});
     });
 
 }
