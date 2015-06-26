@@ -138,8 +138,8 @@
 			var prayerImage 	= document.getElementById("image_"+prayerId).innerHTML;
 			document.getElementById("myPrayersModalTitle").innerHTML=prayerTitle;
 			document.getElementById("myPrayersModalContent").innerHTML=prayerContent;
-			document.getElementById("myPrayersModalImage1").src=+"/uploads/"+prayerImage;
-			document.getElementById("myPrayersModalImage2").src=+"/uploads/"+prayerImage;
+			document.getElementById("myPrayersModalImage1").src="/uploads/"+prayerImage;
+			document.getElementById("myPrayersModalImage2").src="/uploads/"+prayerImage;
 			if(!fromMain)
 				window.location.assign(window.location.href += '?' +prayerId);
 			else
