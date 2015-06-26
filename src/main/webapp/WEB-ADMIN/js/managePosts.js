@@ -130,6 +130,7 @@ function loadPostTable(){
 		});
 		$('#posts').append('</tbody>');
 		$('#posts').DataTable({"sPaginationType": "bootstrap"});
+		$('#posts').DataTable({"aaSorting": [[ 3, "desc" ]]});
     });
 
 }

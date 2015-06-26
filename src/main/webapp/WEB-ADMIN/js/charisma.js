@@ -267,8 +267,7 @@ function docReady(){
 			"sPaginationType": "bootstrap",
 			"oLanguage": {
 			"sLengthMenu": "_MENU_ records per page"
-			},
-			"aaSorting": [[ 3, "desc" ]] //depend on your field to sort
+			}
 		} );
 	$('.btn-close').click(function(e){
 		e.preventDefault();
