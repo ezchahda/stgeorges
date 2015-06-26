@@ -78,14 +78,14 @@
         <div class="middle-content prayers-content">
         	<div class="container" id="containerP" style="display:none">
         		<div class="row prayer" >
-        			<div class="col-md-2">&nbsp;</div> 
+        			<div class="col-md-2"><img id="myPrayersModalImage1" alt="+"/></div> 
 		        	<div class="col-md-8 col-sm-12">
                         <h5 onclick="hidePrayer()" class="widget-title col-md-6 col-sm-6" style="cursor:pointer;text-align: left;text-decoration: underline">صفحة الصلوات</h5>
                         <h3 class="widget-title col-md-6 col-sm-6" id="myPrayersModalTitle"></h3>
 			        	<span id="myPrayersModalContent" class="contact-form"></span>
 			        	<h5 onclick="hidePrayer()" class="widget-title col-md-6 col-sm-6" style="cursor:pointer;margin-top:10;text-align: left;text-decoration: underline">صفحة الصلوات</h5>
 		        	</div>
-		        	<div class="col-md-2">&nbsp;</div>
+		        	<div class="col-md-2"><img id="myPrayersModalImage2" alt="+"/></div>
         		</div>
         	</div>
         	<div class="container" id="container"></div>
@@ -119,6 +119,7 @@
 										+'</div>'
 									+'</div>'
 								+'<span id="content_'+element.postId+'" style="display:none">'+element.postContent+'</span>'
+								+'<span id="image_'+element.postId+'" style="display:none">'+element.postImage+'</span>'
 								+'</div>';
 					});
 					rowDiv += '</div>';
@@ -132,10 +133,13 @@
 		}
 		
 		function openPrayer(prayerId){
-			var prayerTitle   = document.getElementById("title_"+prayerId).innerHTML;
-			var prayerContent = document.getElementById("content_"+prayerId).innerHTML;
+			var prayerTitle   	= document.getElementById("title_"+prayerId).innerHTML;
+			var prayerContent 	= document.getElementById("content_"+prayerId).innerHTML;
+			var prayerImage 	= document.getElementById("image_"+prayerId).innerHTML;
 			document.getElementById("myPrayersModalTitle").innerHTML=prayerTitle;
 			document.getElementById("myPrayersModalContent").innerHTML=prayerContent;
+			document.getElementById("myPrayersModalImage1").src=+"/uploads/"+prayerImage;
+			document.getElementById("myPrayersModalImage2").src=+"/uploads/"+prayerImage;
 			if(!fromMain)
 				window.location.assign(window.location.href += '?' +prayerId);
 			else
