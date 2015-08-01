@@ -36,7 +36,7 @@ props.put("mail.smtp.user", user);
 props.put("mail.smtp.host", host); 
 props.put("mail.transport.protocol.", "smtp"); 
 props.put("mail.smtp.auth", "true"); 
-props.put("mail.smtp.starttls.enable","true"); 
+props.put("mail.smtp.starttls.enable","false"); 
 props.put("mail.smtp.debug", "true"); 
 props.put("mail.debug", "true"); 
 props.put("mail.smtp.port", "587"); 
