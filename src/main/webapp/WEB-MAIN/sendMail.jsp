@@ -67,7 +67,7 @@
     Transport transport = mailSession.getTransport("smtp");
     System.setProperty("javax.net.ssl.trustStore", "conf/jssecacerts");
     System.setProperty("javax.net.ssl.trustStorePassword", "admin");
-    transport.connect(host, "sender_mail_id", "password_of_sender");
+    transport.connect(host, "sender_mail_id", password);
  
     try {
  
