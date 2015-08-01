@@ -114,10 +114,15 @@ public class LoginDAO {
 			}
 	    	
 	    	
+			System.out.println("--------------->>>>>>>>>>>>>"+dbhost);
+			
 	    	Class.forName("com.mysql.jdbc.Driver");
 	    	connection = DriverManager.getConnection("jdbc:mysql://"+dbhost+"/"+dbname,dbuser,dbpass);
 	    } catch (Exception e){
+	    	
+	    	
 	    	e.printStackTrace();
+	    	
 	    }
 	    return connection;
 	}

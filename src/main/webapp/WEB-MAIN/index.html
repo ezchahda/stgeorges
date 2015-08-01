@@ -79,7 +79,7 @@
             </div>
         </div>
 
-		<div class="middle-content"></div>
+		<div class="middle-content"><div id="loadgif" style="padding-left:35%; padding-top:20%"><img height="200px" src="img/loading.gif"/></div></div>
 
         <div class="site-footer" id="footerContent"></div>
         
@@ -138,6 +138,9 @@
 				    prevText: "&larr;",
 				    nextText: "&rarr;"
 				});
+
+
+				$('#loadgif').find('img').first().remove();
 		    });
 
 

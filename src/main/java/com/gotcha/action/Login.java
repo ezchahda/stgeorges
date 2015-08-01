@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,6 @@ import com.gotcha.vo.UserVO;
 
 public class Login extends HttpServlet{
 
-	
 	protected void doGet(HttpServletRequest request,   HttpServletResponse response) throws ServletException, IOException {		 
 		  
 		Map<String, String> resultMap = new LinkedHashMap<String, String>();
