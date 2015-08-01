@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 	        return false;
 	    });
 
-		$("#footerContent").load("WEB-MAIN/footer.html"); 
+		$("#footerContent").load("footer.html"); 
 });
 
 function getArabicMonth(monthNumber){
