@@ -173,9 +173,9 @@
 		                            //+'<h4 class="consult-title">'+element.postSubType+" : "+element.postTitle+'</h4>';
 						}
 						
-		                rowDiv +=  '<p class="consult-content" id="contentOf'+element.postId+'">'+
+		                rowDiv +=  '<div id="contentOf'+element.postId+'"><p class="consult-content">'+
 										element.postContent+
-									'</p>'+
+									'</p></div>'+
 									'<ul class="social-icons visible-xs visible-sm visible-md" style="text-align: left;">'+
 									'<li>Share<a href="#" class="fa fa-facebook" onClick="FBShare(\''+element.postId+'\',\''+element.postTitle+'\',\''+element.postSubType+'\',\''+element.postImage+'\')"></a></li>'+
 		                      		'</ul>'+
