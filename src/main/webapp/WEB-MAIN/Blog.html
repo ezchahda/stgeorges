@@ -156,7 +156,7 @@
 			                                '</div>'+
 			                                '<div class="post-content">'+
 						                           ' <ul class="social-icons visible-lg" style="text-align: left;">'+
-						                            	'<li>Share<a href="#" class="fa fa-facebook" onClick="FBShare(\''+element.postId+'\',\''+element.postTitle+'\',\''+element.postSubType+'\',\''+cutContent+'\',\''+element.postImage+'\')"></a></li>'+
+						                            	'<li>Share<a href="#" class="fa fa-facebook" onClick="FBShare(\''+element.postId+'\',\''+element.postTitle+'\',\''+element.postSubType+'\',\''+element.postImage+'\')"></a></li>'+
 						                            	//'<li>Tweet<a href="#" class="fa fa-twitter"></a></li>'+
 						                            	'<li>&nbsp;</li>'+
 						                        	'</ul>'+
@@ -173,12 +173,11 @@
 		                            //+'<h4 class="consult-title">'+element.postSubType+" : "+element.postTitle+'</h4>';
 						}
 						
-		                rowDiv +=  '<p class="consult-content">'+
+		                rowDiv +=  '<p class="consult-content" id="contentOf'+element.postId+'">'+
 										element.postContent+
 									'</p>'+
 									'<ul class="social-icons visible-xs visible-sm visible-md" style="text-align: left;">'+
-						                	'<li>Share<a href="#" class="fa fa-facebook"></a></li>'+
-						                   	'<li>Tweet<a href="#" class="fa fa-twitter"></a></li>'+
+									'<li>Share<a href="#" class="fa fa-facebook" onClick="FBShare(\''+element.postId+'\',\''+element.postTitle+'\',\''+element.postSubType+'\',\''+element.postImage+'\')"></a></li>'+
 		                      		'</ul>'+
 			                     '</div>'+
 			                    '</div>'+
@@ -219,7 +218,10 @@
 			}, false);
 		}
 
-		function FBShare(id,title,subtitle,content,imageSource){
+		function FBShare(id,title,subtitle,imageSource){
+
+			var content=document.getElementById("contentOf"+id).innerHTML;
+			
 			FB.ui(
 					{
 					method: 'feed',
