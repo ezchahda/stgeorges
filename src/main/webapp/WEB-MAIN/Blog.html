@@ -154,7 +154,7 @@
 			                                '</div>'+
 			                                '<div class="post-content">'+
 						                           ' <ul class="social-icons visible-lg" style="text-align: left;">'+
-						                            	'<li>Share<a href="#" class="fa fa-facebook" onClick="FBShare(\''+element.postId+'\',\''+element.postTitle+'\',\''+element.postSubType+'\',\''+element.postContent.substring(0,2000)+'\',\''+element.postImage+'\')"></a></li>'+
+						                            	'<li>Share<a href="#" class="fa fa-facebook" onClick="FBShare(\''+element.postId+'\',\''+element.postTitle+'\',\''+element.postSubType+'\',\''+escapeHtml(element.postContent.substring(0,2000))+'\',\''+element.postImage+'\')"></a></li>'+
 						                            	//'<li>Tweet<a href="#" class="fa fa-twitter"></a></li>'+
 						                            	'<li>&nbsp;</li>'+
 						                        	'</ul>'+
@@ -229,6 +229,22 @@
 					message: ''
 					});
 		}
+
+		var entityMap = {
+			    "&": "&amp;",
+			    "<": "&lt;",
+			    ">": "&gt;",
+			    '"': '&quot;',
+			    "'": '&#39;',
+			    "/": '&#x2F;'
+			  };
+
+			  function escapeHtml(string) {
+			    return String(string).replace(/[&<>"'\/]/g, function (s) {
+			      return entityMap[s];
+			    });
+			  }
+			  
 		</script>
         <script src="js/bootstrap.js"></script>
         <script src="js/plugins.js"></script>
