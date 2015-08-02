@@ -38,7 +38,7 @@ props.put("mail.transport.protocol.", "smtp");
 props.put("mail.smtp.auth", "true"); 
 props.put("mail.smtp.starttls.enable","true"); 
 props.put("mail.smtp.debug", "true"); 
-props.put("mail.debug", "true"); 
+props.put("mail.debug", sessionDebug); 
 props.put("mail.smtp.port", "587"); 
 //props.put("mail.smtp.socketFactory.p... "25"); 
 //props.put("mail.smtp.socketFactory.fal... "false"); 
