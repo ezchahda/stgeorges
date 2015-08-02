@@ -207,15 +207,16 @@
 			loadJsonIntoContainer(tempJSON)
 		}
 
-		document.getElementById("search").addEventListener( "keydown", function( e ) {
-		    var keyCode = e.keyCode || e.which;
-		    filterPosts();
-		    if ( keyCode === 13 ) {
-		       // enter pressed
-		       filterPosts();
-		    }
-		}, false);
-		
+		if(document.getElementById("search")!=null){
+			document.getElementById("search").addEventListener( "keydown", function( e ) {
+			    var keyCode = e.keyCode || e.which;
+			    filterPosts();
+			    if ( keyCode === 13 ) {
+			       // enter pressed
+			       filterPosts();
+			    }
+			}, false);
+		}
 		</script>
         <script src="js/bootstrap.js"></script>
         <script src="js/plugins.js"></script>
