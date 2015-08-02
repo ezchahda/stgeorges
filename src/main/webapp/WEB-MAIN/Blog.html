@@ -218,7 +218,7 @@
 
 		function FBShare(id,title,subtitle,imageSource){
 
-			var content=(escapeHtml(document.getElementById("contentOf"+id).innerHTML)).substring(0,9000);
+			var content=(document.getElementById("contentOf"+id).innerHTML).substring(0,9999);
 			
 			FB.ui(
 					{
