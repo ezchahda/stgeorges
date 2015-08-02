@@ -143,8 +143,6 @@
 				if(element.postImage == null || element.postImage == "null") 
 					yesImage = false; 
 
-				var cutContent= escapeHtml(element.postContent.substring(0,2000));
-				
 				rowDiv = '<div class="row" id="'+element.postId+'">'+
 	                		'<div class="visible-lg visible-md col-md-2"></div>'+
 		                    '<div class="col-md-8 blog-box">'+
@@ -220,7 +218,7 @@
 
 		function FBShare(id,title,subtitle,imageSource){
 
-			var content=escapeHtml(document.getElementById("contentOf"+id).innerHTML);
+			var content=(escapeHtml(document.getElementById("contentOf"+id).innerHTML)).substring(0,9000);
 			
 			FB.ui(
 					{
