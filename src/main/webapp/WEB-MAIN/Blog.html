@@ -95,6 +95,7 @@
             	<div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8 search-bar">
+                    		<div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 						    <!-- <input id="submit" type="submit" value="ابحث" onclick="filterPosts()"> -->
 						    <!-- <input id="search" type="text" placeholder="أكتب هنا">  -->
 					</div>
@@ -154,7 +155,8 @@
 			                                '</div>'+
 			                                '<div class="post-content">'+
 						                           ' <ul class="social-icons visible-lg" style="text-align: left;">'+
-						                            	'<li><div class="fb-share-button" data-href="http://www.stgeorgebatroun.com/WEB-MAIN/Blog.html?'+element.postId+'" data-layout="button"></div></li>'+
+						                            	'<li>Share<a href="#" class="fa fa-facebook" onClick="FBShare('+element.postId+','+element.postTitle+','+element.postImage+')"></a></li>'+
+						                            	//'<li>Tweet<a href="#" class="fa fa-twitter"></a></li>'+
 						                            	'<li>&nbsp;</li>'+
 						                        	'</ul>'+
 			                                    '<h4 class="visible-lg blog-title-lg"><a href="#">'+element.postTitle+'</a></h4>'+
@@ -174,8 +176,8 @@
 										element.postContent+
 									'</p>'+
 									'<ul class="social-icons visible-xs visible-sm visible-md" style="text-align: left;">'+
-						                	'<li><div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="icon"></div></li>'+
-						                   	'<li>&nbsp;</li>'+
+						                	'<li>Share<a href="#" class="fa fa-facebook"></a></li>'+
+						                   	'<li>Tweet<a href="#" class="fa fa-twitter"></a></li>'+
 		                      		'</ul>'+
 			                     '</div>'+
 			                    '</div>'+
@@ -214,6 +216,19 @@
 			       filterPosts();
 			    }
 			}, false);
+		}
+
+		function FBShare(id,title,imageSource){
+			FB.ui(
+					{
+					method: 'feed',
+					name: title,
+					link: 'http://www.stgeorgebatroun.com/WEB-MAIN/Blog.html?'+id,
+					picture: imageSource,
+					caption: title,
+					description: '...',
+					message: ''
+					});
 		}
 		</script>
         <script src="js/bootstrap.js"></script>
