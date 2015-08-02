@@ -220,7 +220,7 @@
 
 		function FBShare(id,title,subtitle,imageSource){
 
-			var content=document.getElementById("contentOf"+id).innerHTML;
+			var content=escapeHtml(document.getElementById("contentOf"+id).innerHTML);
 			
 			FB.ui(
 					{
