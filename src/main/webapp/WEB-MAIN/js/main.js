@@ -18,11 +18,17 @@ jQuery(document).ready(function($) {
 		$("#footerContent").load("footer.html");
 		
 		$("#headerContent").load("header.html", function(){
+			
 			var liToActivate = window.location.href.slice(window.location.href.indexOf('/WEB-MAIN/') + 10);
+			
 			if(liToActivate != null && liToActivate.split(".html")){
 				liToActivate = liToActivate.split(".html")[0];
-				document.getElementById('li_'+liToActivate).className="active";
-				document.getElementById('li_mob_'+liToActivate).className="active";
+				
+				var li = document.getElementById('li_'+liToActivate);
+				li.className= li.className+" active";
+				
+				li = document.getElementById('li_mob_'+liToActivate);
+				li.className= li.className+" active";
 			}
 		});
 });
