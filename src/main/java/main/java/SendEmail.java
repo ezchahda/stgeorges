@@ -21,11 +21,11 @@ public class SendEmail {
     public static boolean run(String name,String email, String subject, String content) {
 
     	String recipients = "stgeorgebatroun@gmail.com";//Your Email Address//
-        String fromAddress = name+" <"+email.trim()+">";
+        String fromAddress = email;
         String contentType = "text/plain";
 
         String smtpHost = "smtp.gmail.com";//Your Outgoing Mailbox//
-        int smtpPort = 587;
+        int smtpPort = 465;
         String username = "stgeorgebatroun@gmail.com";//Your Mailbox Username//
         String password = "website71770257";//Your Mailbox Password//
 
@@ -33,13 +33,18 @@ public class SendEmail {
         {
             Properties props = System.getProperties();
             props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", "smtp.gmail.com");
+    		props.put("mail.smtp.socketFactory.port", "465");
+    		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+    		props.put("mail.smtp.auth", "true");
+    		props.put("mail.smtp.port", "465");
+            
             Session session = Session.getDefaultInstance(props);
 
             MimeMessage message = new MimeMessage(session);
 
             message.setFrom(new InternetAddress(fromAddress));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients, false));
-
             message.setSubject(subject);
             message.setContent(content, contentType);
             message.setSentDate(new Date());
