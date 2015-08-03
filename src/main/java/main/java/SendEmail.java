@@ -1,5 +1,4 @@
 package main.java;
-import java.util.Date;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -44,10 +43,10 @@ public class SendEmail {
  
 			Transport.send(message);
  
-			return "success";
+			return "Your Query has been received, Thank you.";
  
 		} catch (MessagingException e) {
-			return "email not sent with error: "+e.getLocalizedMessage();
+			return "Message not sent, we apologize we will fix this soon";
 		}
 	}
 }
