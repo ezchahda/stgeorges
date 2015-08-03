@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package main.java;
 import java.util.Date;
 import java.util.Properties;
@@ -11,11 +7,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-/**
- *
- * @author Siriquelle
- */
+ 
 public class SendEmail {
 
     public static boolean run(String name,String email, String subject, String content) {
@@ -33,13 +25,18 @@ public class SendEmail {
         content = "message from: "+email+" in the website contact form:\n\n\n"+content;
         try
         {
-            Properties props = System.getProperties();
-            props.put("mail.smtp.starttls.enable", "true");
+            Properties props = new Properties();
+            props.put("mail.smtp.user", username);
             props.put("mail.smtp.host", "smtp.zoho.com");
-    		props.put("mail.smtp.socketFactory.port", "465");
-    		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-    		props.put("mail.smtp.auth", "true");
-    		props.put("mail.smtp.port", "465");
+            props.put("mail.smtp.port", "25");
+            props.put("mail.debug", "true");
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.EnableSSL.enable", "true");
+            props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+            props.setProperty("mail.smtp.socketFactory.fallbac k", "false");
+            props.setProperty("mail.smtp.port", "465");
+            props.setProperty("mail.smtp.socketFactory.port", "465");
             
             Session session = Session.getDefaultInstance(props);
 
