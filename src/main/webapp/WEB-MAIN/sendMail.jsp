@@ -6,8 +6,9 @@
 		String subject= request.getParameter("subject");
 		String message = request.getParameter("message");
 
-		String zmessage = main.java.SendEmail.run(name, email, subject, message); 
-
-		out.println(zmessage);
+		if(main.java.SendEmail.run(name, email, subject, message) 
+		out.println("success");
+		else
+			out.println("error");
 	}
 %>
