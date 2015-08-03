@@ -43,10 +43,10 @@ public class SendEmail {
  
 			Transport.send(message);
  
-			return "Your Query has been received, Thank you.";
+			return "شكرا لقد استلمنا رسالتكم و سنوافيكم بالرد على عنوان البريد الإلكتروني الخاص بكم"; 
  
 		} catch (MessagingException e) {
-			return "Message not sent, we apologize we will fix this soon";
+			return "عذرا لقد واجهنا مشكلة تقنية يرجى المحاولة لاحقا";
 		}
 	}
 }

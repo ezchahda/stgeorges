@@ -463,3 +463,7 @@ html[xmlns] .slides {
 .carousel li {
     margin-right: 5px;
 }
+
+.ButtonClicked {
+    background-color:gray;
+}

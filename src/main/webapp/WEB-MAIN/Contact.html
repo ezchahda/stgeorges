@@ -32,14 +32,13 @@
                         <h3 class="widget-title">تواصل معنا</h3>
                         <div class="contact-form">
                             <form name="contactform" id="contactform" action="#">
-                                <p id="returnmessage"></p>
-                                <p>&nbsp;</p>
+                                <h3 class="widget-sub-title" id="returnmessage"></h3>
                                 <p><input 	 name="name" 	type="text" id="name" 	 placeholder="الإسم"></p>
                                 <p><input 	 name="email" 	type="text" id="email" 	 placeholder="عنوان البريد اللإلكتروني"></p>
                                 <p><input 	 name="subject" type="text" id="subject" placeholder="الموضوع"></p>
                                 <p><textarea name="message" 			id="message" placeholder="الرسالة"></textarea></p>
                                 
-                                <input type="button" class="mainBtn" id="submit" value="إرسال">
+                                <input type="button" class="mainBtn" id="submitBtn" value="إرسال">
                             </form>
                         </div>
                     </div>
@@ -87,27 +86,43 @@
                 });
             	});
 	
-
                 
-            	$("#submit").click(function() {
+            	$("#submitBtn").click(function() {
+	            
+                    	
             	var name = $("#name").val();
             	var email = $("#email").val();
             	var subject = $("#subject").val();
             	var message = $("#message").val();
-            	$("#returnmessage").empty(); // To empty previous error/success message.
-            	// Checking for blank fields.
+            	$("#returnmessage").empty();
+
             	if (name == '' || email == '' || subject == '' || message == '') {
-            	alert("Please Fill Required Fields");
+            		$("#returnmessage").append("يرجى ملء جميع الخانات");
             	} else {
-            	// Returns successful data submission message when the entered information is stored in database.
+                	
+           		document.getElementById("submitBtn").style.display = "none";
+
+   				document.getElementById("name").disabled = true;
+   				document.getElementById("email").disabled = true;
+   				document.getElementById("subject").disabled = true;
+   				document.getElementById("message").disabled = true;
+                	
             	$.post("sendMail.jsp", {
             	name: name,
             	email: email,
             	subject: subject,
             	message: message
             	}, function(data) {
-            	$("#returnmessage").append(data);
-            	document.getElementById("contactform").reset(); 
+                	
+            		$("#returnmessage").append(data);
+
+            		document.getElementById("name").disabled = false;
+            		document.getElementById("email").disabled = false;
+            		document.getElementById("subject").disabled = false;
+            		document.getElementById("message").disabled = false;
+
+            		document.getElementById("submitBtn").style.display = "inline"
+            		document.getElementById("contactform").reset(); 
             	});
             	}
             	});
