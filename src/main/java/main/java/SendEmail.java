@@ -3,6 +3,7 @@ import java.util.Date;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -12,44 +13,39 @@ public class SendEmail {
 
     public static String run(String name,String email, String subject, String content) {
 
-    	String recipients = "contactus@stgeorgebatroun.com";//Your Email Address//
-        String fromAddress = "stgeorgebatroun@gmail.com";
-        String contentType = "text/plain";
-
-        String smtpHost = "smtp.gmail.com";//Your Outgoing Mailbox//
-        int smtpPort = 465;
-        String username = "stgeorgebatroun@gmail.com";//Your Mailbox Username//
-        String password = "website71770257";//Your Mailbox Password//
-
-        try
-        {
-            Properties props = System.getProperties();
-            props.put("mail.smtp.starttls.enable", "true");
-            Session session = Session.getDefaultInstance(props);
-
-            MimeMessage message = new MimeMessage(session);
-
-            message.setFrom(new InternetAddress(fromAddress));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients, false));
-
-            message.setSubject(subject);
-            message.setContent(content, contentType);
-            message.setSentDate(new Date());
-
-            Transport transport = session.getTransport("smtp");
-            transport.connect(smtpHost, smtpPort, username, password);
-            transport.sendMessage(message, message.getAllRecipients());
-            transport.close();
-
-            return "success";
-        } catch (MessagingException messagingException)
-        {
-            return "ERROR: "+messagingException.getLocalizedMessage();
-
-        } catch (Exception e)
-        {
-            return "ERROR: "+e.getLocalizedMessage();
-        }
-    }
+    	final String username = "stgeorgebatroun@gmail.com";
+		final String password = "website71770257";
+ 
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+ 
+		Session session = Session.getInstance(props,
+		  new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		  });
+ 
+		try {
+ 
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("stgeorgebatroun@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO,
+				InternetAddress.parse("contactus@stgeorgebatroun.com"));
+			message.setSubject("Testing Subject");
+			message.setText("Dear Mail Crawler,"
+				+ "\n\n No spam to my email, please!");
+ 
+			Transport.send(message);
+ 
+			return "email sent successfully";
+ 
+		} catch (MessagingException e) {
+			return "email not sent with error: "+e.getLocalizedMessage();
+		}
+	}
 }
 
