@@ -10,7 +10,7 @@ import javax.mail.internet.MimeMessage;
  
 public class SendEmail {
 
-    public static boolean run(String name,String email, String subject, String content) {
+    public static String run(String name,String email, String subject, String content) {
 
     	String recipients = "contactus@stgeorgebatroun.com";//Your Email Address//
         String fromAddress = "contactus@stgeorgebatroun.com";
@@ -53,16 +53,14 @@ public class SendEmail {
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
 
-            return true;
+            return "Message sent";
         } catch (MessagingException messagingException)
         {
-            messagingException.printStackTrace();
-            return false;
+            return "FAILED\n\n\n\n"+messagingException.getMessage();
 
         } catch (Exception e)
         {
-            System.out.print(e);
-            return false;
+        	return "FAILED\n\n\n\n"+e.getMessage();
         }
     }
 }
