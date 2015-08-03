@@ -23,6 +23,8 @@ public class SendEmail {
 		props.put("mail.smtp.port", "587");
 		props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
+		
+		String emailmessage = "Email from: "+name+" <"+email+">\n\n Topic: "+subject+"\n\n"+content;
 
 		Session session = Session.getInstance(props,
 		  new javax.mail.Authenticator() {
@@ -37,13 +39,12 @@ public class SendEmail {
 			message.setFrom(new InternetAddress("stgeorgebatroun@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse("contactus@stgeorgebatroun.com"));
-			message.setSubject("Testing Subject");
-			message.setText("Dear Mail Crawler,"
-				+ "\n\n No spam to my email, please!");
+			message.setSubject("Message from St George Website");
+			message.setText(emailmessage);
  
 			Transport.send(message);
  
-			return "email sent successfully";
+			return "success";
  
 		} catch (MessagingException e) {
 			return "email not sent with error: "+e.getLocalizedMessage();
