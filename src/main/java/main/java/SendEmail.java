@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package main.java;
 import java.util.Date;
 import java.util.Properties;
@@ -12,20 +8,16 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-/**
- *
- * @author Siriquelle
- */
 public class SendEmail {
 
-    public static boolean run(String name,String email, String subject, String content) {
+    public static String run(String name,String email, String subject, String content) {
 
-    	String recipients = "stgeorgebatroun@gmail.com";//Your Email Address//
+    	String recipients = "contactus@stgeorgebatroun.com";//Your Email Address//
         String fromAddress = "stgeorgebatroun@gmail.com";
         String contentType = "text/plain";
 
         String smtpHost = "smtp.gmail.com";//Your Outgoing Mailbox//
-        int smtpPort = 587;
+        int smtpPort = 465;
         String username = "stgeorgebatroun@gmail.com";//Your Mailbox Username//
         String password = "website71770257";//Your Mailbox Password//
 
@@ -49,16 +41,14 @@ public class SendEmail {
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
 
-            return true;
+            return "success";
         } catch (MessagingException messagingException)
         {
-            System.out.print(messagingException);
-            return false;
+            return "ERROR: "+messagingException.getLocalizedMessage();
 
         } catch (Exception e)
         {
-            System.out.print(e);
-            return false;
+            return "ERROR: "+e.getLocalizedMessage();
         }
     }
 }
