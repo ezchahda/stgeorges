@@ -25,68 +25,24 @@
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
 		<script>
-		  window.fbAsyncInit = function() {
-		    FB.init({
-		      appId      : '1607206419504201',
-		      xfbml      : true,
-		      version    : 'v2.4'
-		    });
-		  };
+			 window.fbAsyncInit = function() {
+			    FB.init({
+			      appId      : '1607206419504201',
+			      xfbml      : true,
+			      version    : 'v2.4'
+			    });
+			  };
 		
-		  (function(d, s, id){
-		     var js, fjs = d.getElementsByTagName(s)[0];
-		     if (d.getElementById(id)) {return;}
-		     js = d.createElement(s); js.id = id;
-		     js.src = "//connect.facebook.net/en_US/sdk.js";
-		     fjs.parentNode.insertBefore(js, fjs);
-		   }(document, 'script', 'facebook-jssdk'));
+			  (function(d, s, id){
+			     var js, fjs = d.getElementsByTagName(s)[0];
+			     if (d.getElementById(id)) {return;}
+			     js = d.createElement(s); js.id = id;
+			     js.src = "//connect.facebook.net/en_US/sdk.js";
+			     fjs.parentNode.insertBefore(js, fjs);
+			   }(document, 'script', 'facebook-jssdk'));
 		</script>
 		
-        <div class="site-header">
-            <div class="container">
-                <div class="main-header">
-                    <div class="row" >
-                        <div class="col-md-2 col-sm-6 col-xs-10">
-                            <div class="logo">
-                                <a rel="nofollow" href="#">
-                                    <img class="logoImage visible-lg visible-md" src="images/logo.gif" title="St George">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-10 col-sm-6 col-xs-2">
-                            <div class="main-menu" >
-                                <ul class="visible-lg visible-md" >
-                                    <li><a href="Contact.html">تواصل معنا</a></li>
-                                    <li><a href="Prayer.html">صلوات</a></li>
-                                    <li class="active"><a href="Blog.html">تعرّف على الكنيسة</a></li>
-                                    <li><a href="News.html">أخبار الرعية</a></li>
-                                    <li><a href="index.html">رعية القديس جاورجيوس | البترون</a></li>
-                                </ul>
-                                <a href="#" class="toggle-menu visible-sm visible-xs">
-                                    <i class="fa fa-bars"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                	<div class="visible-sm visible-xs respTitle">
-                		<span>تعرّف على الكنيسة</span>
-                	</div>
-                    <div class="col-md-12 visible-sm visible-xs">
-                        <div class="menu-responsive" >
-                            <ul>
-                                <li><a href="index.html">رعية القديس جاورجيوس | البترون</a></li>
-                                <li><a href="News.html">أخبار الرعية</a></li>
-                                <li class="active"><a href="Blog.html">تعرّف على الكنيسة</a></li>
-                                <li><a href="Prayer.html">صلوات</a></li>
-                                <li><a href="Contact.html">تواصل معنا</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="site-header" id="headerContent"></div>
 
         <div class="page-top" id="templatemo_blog"></div>
 
@@ -117,18 +73,16 @@
 		function loadPosts(){
 			$.get('/GetPost',{postId:$postId,postType:'Blog'},function(responseJson){})
 		    .done(function(responseJson){
-
-		    BigJSON = responseJson;
-			loadJsonIntoContainer(responseJson);
-				
-			var scrollToId = window.location.href;
-			if(scrollToId.indexOf("?")>0){
-				scrollToId = scrollToId.split("?")[1];
-			    $('html, body').animate({
-			        scrollTop: $("#"+scrollToId).offset().top
-			        }, 1000);
-			}
-		});
+			    BigJSON = responseJson;
+				loadJsonIntoContainer(responseJson);
+				var scrollToId = window.location.href;
+				if(scrollToId.indexOf("?")>0){
+					scrollToId = scrollToId.split("?")[1];
+				    $('html, body').animate({
+				        scrollTop: $("#"+scrollToId).offset().top
+				        }, 1000);
+				}
+			});
 		}
 
 		function clearJsonContainer(){
@@ -136,7 +90,6 @@
 		}
 		
 		function loadJsonIntoContainer(jsonObj){
-			
 			$(jsonObj).each(function(index, element){  
 				var yesImage = true;
 				var rowDiv   = "";
@@ -167,7 +120,6 @@
 		                  rowDiv += '<div class="sample-thumb">'+
 		                                '<img src="/uploads/'+element.postImage+'" />'+
 		                            '</div>';
-		                            //+'<h4 class="consult-title">'+element.postSubType+" : "+element.postTitle+'</h4>';
 						}
 						
 		                rowDiv +=  '<div id="contentOf'+element.postId+'"><p class="consult-content">'+
@@ -230,7 +182,6 @@
 					message: ''
 					});
 		}
-
 
 			  function  strip(html) {
 				  var tmp = document.createElement("DIV");

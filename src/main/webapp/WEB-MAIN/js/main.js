@@ -15,7 +15,16 @@ jQuery(document).ready(function($) {
 	        return false;
 	    });
 
-		$("#footerContent").load("footer.html"); 
+		$("#footerContent").load("footer.html");
+		
+		$("#headerContent").load("header.html", function(){
+			var liToActivate = window.location.href.slice(window.location.href.indexOf('/WEB-MAIN/') + 10);
+			if(liToActivate != null && liToActivate.split(".html")){
+				liToActivate = liToActivate.split(".html")[0];
+				document.getElementById('li_'+liToActivate).className="active";
+				document.getElementById('li_mob_'+liToActivate).className="active";
+			}
+		});
 });
 
 function getArabicMonth(monthNumber){
