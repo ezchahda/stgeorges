@@ -20,20 +20,22 @@ public class SendEmail {
 
     public static boolean run(String name,String email, String subject, String content) {
 
-    	String recipients = "stgeorgebatroun@gmail.com";//Your Email Address//
-        String fromAddress = email;
+    	String recipients = "contactus@stgeorgebatroun.com";//Your Email Address//
+        String fromAddress = "contactus@stgeorgebatroun.com";
         String contentType = "text/plain";
 
-        String smtpHost = "smtp.gmail.com";//Your Outgoing Mailbox//
+        String smtpHost = "smtp.zoho.com";//Your Outgoing Mailbox//
         int smtpPort = 465;
-        String username = "stgeorgebatroun@gmail.com";//Your Mailbox Username//
+        String username = "contactus@stgeorgebatroun.com";//Your Mailbox Username//
         String password = "website71770257";//Your Mailbox Password//
-
+        
+        
+        content = "message from: "+email+" in the website contact form:\n\n\n"+content;
         try
         {
             Properties props = System.getProperties();
             props.put("mail.smtp.starttls.enable", "true");
-            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.put("mail.smtp.host", "smtp.zoho.com");
     		props.put("mail.smtp.socketFactory.port", "465");
     		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
     		props.put("mail.smtp.auth", "true");
@@ -57,7 +59,7 @@ public class SendEmail {
             return true;
         } catch (MessagingException messagingException)
         {
-            System.out.print(messagingException);
+            messagingException.printStackTrace();
             return false;
 
         } catch (Exception e)
