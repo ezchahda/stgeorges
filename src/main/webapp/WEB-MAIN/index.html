@@ -36,8 +36,8 @@
         </div>
 
 		<div class="middle-content">
-			<div id="loadgif" style="padding-left:35%; padding-top:20%">
-				<img height="100px" src="img/cross1.gif"/>
+			<div style="padding-left:50%; padding-top:20%">
+				<img id="loadgif" height="100px" src="img/cross1.gif"/>
 			</div>
 		</div>
 
@@ -100,7 +100,8 @@
 				});
 
 
-				$('#loadgif').find('img').first().remove();
+				var element = document.getElementById("loadgif");
+				element.parentNode.removeChild(element);
 		    });
 
 
