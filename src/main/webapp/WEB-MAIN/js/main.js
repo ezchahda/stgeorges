@@ -27,7 +27,6 @@ jQuery(document).ready(function($) {
 				li.className= li.className+" active";
 				
 			}
-			//$('.dropdown-toggle').dropdown();
 			$('.toggle-menu').click(function(){
 				$('.menu-responsive').slideToggle();
 			});

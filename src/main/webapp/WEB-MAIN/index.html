@@ -36,7 +36,7 @@
         </div>
 
 		<div class="middle-content">
-			<div style="padding-left:50%; padding-top:20%">
+			<div id="loadDiv" style="padding-left:50%; padding-top:20%">
 				<img id="loadgif" height="100px" src="img/cross1.gif"/>
 			</div>
 		</div>
@@ -101,7 +101,8 @@
 
 
 				var element = document.getElementById("loadgif");
-				element.parentNode.removeChild(element);
+				var elementParent = document.getElementById("loadDiv");
+				elementParent.removeChild(element);
 		    });
 
 
@@ -116,13 +117,6 @@
 
 					var theContent = element.postContent.substring(0,888);
 
-					/*
-					if (isArabic(theContent))
-					 theContent = theContent+"<a> المزيد </a>";
-					else
-						theContent += "<a> more </a>";
-					*/
-					
 					rowDiv += '<div class="list-item" onClick="document.location.href=\''+element.postType+'.html?'+element.postId+'\'" style="cursor:pointer">'
                     			+ '<div class="list-thumb">'
 	                    			+ '<div class="title">'
