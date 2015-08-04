@@ -10,10 +10,6 @@ jQuery(document).ready(function($) {
 		});
 
 
-		$('.toggle-menu').click(function(){
-	        $('.menu-responsive').slideToggle();
-	        return false;
-	    });
 
 		$("#footerContent").load("footer.html");
 		
@@ -29,7 +25,12 @@ jQuery(document).ready(function($) {
 				
 				li = document.getElementById('li_mob_'+liToActivate);
 				li.className= li.className+" active";
+				
 			}
+			//$('.dropdown-toggle').dropdown();
+			$('.toggle-menu').click(function(){
+				$('.menu-responsive').slideToggle();
+			});
 		});
 });
 
