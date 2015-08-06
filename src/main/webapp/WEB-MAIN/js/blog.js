@@ -10,6 +10,8 @@ function loadPosts(){
 					scrollTop: $("#"+scrollToId).offset().top
 				}, 1000);
 			}
+			var elementParent = document.getElementById("loadDiv");
+			elementParent.style.display="none";
 		});
 }
 		
