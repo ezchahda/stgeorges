@@ -90,7 +90,8 @@
 		}
 		
 		function loadJsonIntoContainer(jsonObj){
-			$(jsonObj).each(function(index, element){  
+			$(jsonObj).each(function(index, element){
+				  
 				var yesImage = true;
 				var rowDiv   = "";
 				if(element.postImage == null || element.postImage == "null") 
@@ -116,22 +117,24 @@
 		                                	'</div>'+
 		                            '</div>';
 		                            
-						if(yesImage){
-		                  rowDiv += '<div class="sample-thumb">'+
+				if(yesImage){
+		        	rowDiv += '<div class="sample-thumb">'+
 		                                '<img src="/uploads/'+element.postImage+'" />'+
 		                            '</div>';
-						}
+				}
 						
-		                rowDiv +=  '<div id="contentOf'+element.postId+'"><p class="consult-content">'+
-										element.postContent+
-									'</p></div>'+
-									'<ul class="social-icons visible-xs visible-sm visible-md" style="text-align: left;">'+
-									'<li>Share<a href="#" class="fa fa-facebook" onClick="FBShare(\''+element.postId+'\',\''+element.postTitle+'\',\''+element.postSubType+'\',\''+element.postImage+'\')"></a></li>'+
-		                      		'</ul>'+
-			                     '</div>'+
-			                    '</div>'+
-								'<div class="visible-lg visible-md col-md-2 separator"></div>'+
-			                  '</div>';
+		        rowDiv +=  	'<div id="contentOf'+element.postId+'">'+
+								'<p class="consult-content">'+
+		        					element.postContent+
+								'</p>'+
+							'</div>'+
+							'<ul class="social-icons visible-xs visible-sm visible-md" style="text-align: left;">'+
+								'<li>Share<a href="#" class="fa fa-facebook" onClick="FBShare(\''+element.postId+'\',\''+element.postTitle+'\',\''+element.postSubType+'\',\''+element.postImage+'\')"></a></li>'+
+		        			'</ul>'+
+			            	'</div>'+
+			                '</div>'+
+							'<div class="visible-lg visible-md col-md-2 separator"></div>'+
+			                '</div>';
 				$('#container').append(rowDiv);
 			});
 		}
@@ -153,7 +156,7 @@
 				  return (n.postTitle.indexOf(filterQuery)>0 || n.postContent.indexOf(filterQuery)>0 || n.postSubType.indexOf(filterQuery)>0)
 			});
 
-			loadJsonIntoContainer(tempJSON)
+			loadJsonIntoContainer(tempJSON);
 		}
 
 		if(document.getElementById("search")!=null){
