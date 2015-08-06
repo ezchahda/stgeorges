@@ -1,8 +1,3 @@
-var $postId = "";
-var BigJSON;
-
-$(document).ready(loadPosts());
-		
 function loadPosts(){
 	$.get('/GetPost',{postId:$postId,postType:'Blog'},function(responseJson){})
 		.done(function(responseJson){
