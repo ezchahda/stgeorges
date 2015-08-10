@@ -1179,3 +1179,181 @@ div.contact-form input.mainBtn {
 	height: 40px;
 	margin-top: 15px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.has-top-margin {
+  /* this class is given - using jQuery - to the .cd-main-content following the .cd-secondary-nav when it becomes fixed */
+}
+@media only screen and (min-width: 1170px) {
+  .has-top-margin {
+    -webkit-animation: animate-margin-top 0.2s;
+    -moz-animation: animate-margin-top 0.2s;
+    animation: animate-margin-top 0.2s;
+    margin-top: 70px;
+  }
+}
+
+@-webkit-keyframes animate-margin-top {
+  0% {
+    margin-top: 100px;
+  }
+
+  100% {
+    margin-top: 70px;
+  }
+}
+@-moz-keyframes animate-margin-top {
+  0% {
+    margin-top: 100px;
+  }
+
+  100% {
+    margin-top: 70px;
+  }
+}
+@keyframes animate-margin-top {
+  0% {
+    margin-top: 100px;
+  }
+
+  100% {
+    margin-top: 70px;
+  }
+}
+/* -------------------------------- 
+
+Secondary Fixed Navigation
+
+-------------------------------- */
+.cd-secondary-nav {
+  position: relative;
+  z-index: 3;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cd-secondary-nav ul {
+  /* mobile first - secondary navigation hidden by default, triggered by tap/click on .cd-secondary-nav-trigger*/
+  position: fixed;
+  width: 100%;
+  bottom: 20px;
+  border-radius: 0.25em;
+  visibility: hidden;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  -webkit-transition: -webkit-transform 0.3s, visibility 0s 0.3s;
+  -moz-transition: -moz-transform 0.3s, visibility 0s 0.3s;
+  transition: transform 0.3s, visibility 0s 0.3s;
+}
+.cd-secondary-nav ul.is-visible {
+  visibility: visible;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: -webkit-transform 0.3s, visibility 0s 0s;
+  -moz-transition: -moz-transform 0.3s, visibility 0s 0s;
+  transition: transform 0.3s, visibility 0s 0s;
+}
+.cd-secondary-nav li a {
+  display: block;
+}
+.cd-secondary-nav li:last-child a {
+  border-bottom: none;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-secondary-nav {
+    z-index: 1;
+    height: 100px;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    transition: height 0.3s;
+  }
+  .cd-secondary-nav nav, .cd-secondary-nav ul, .cd-secondary-nav li, .cd-secondary-nav a {
+    height: 100%;
+  }
+  .cd-secondary-nav ul {
+    /* reset navigation values */
+    position: static;
+    width: auto;
+    max-width: 100%;
+    visibility: visible;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+  .cd-secondary-nav li {
+    display: inline-block;
+  }
+  .cd-secondary-nav li a {
+    position: relative;
+    display: block;
+    -webkit-transition: padding 0.2s;
+    -moz-transition: padding 0.2s;
+    transition: padding 0.2s;
+  }
+  
+  .cd-secondary-nav.is-fixed {
+    /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
+    /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
+    position: fixed;
+    top: 0;
+    left:0;
+    height: 70px;
+    width: 100%;
+    padding-left: 15%;
+  }
+  .cd-secondary-nav.animate-children {
+    /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
+    /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
+    box-shadow: 0 1px 2px rgba(0, 0.1, 0.2, 0.3);
+    
+    background: #fff;
+    min-height: 100px;
+    height: 100px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+  }
+  .cd-secondary-nav.animate-children li a {
+  	padding-right:20px;
+  	padding-left:20px;
+  	padding-bottom:10px;
+    padding-top: 3px;
+  }
+}

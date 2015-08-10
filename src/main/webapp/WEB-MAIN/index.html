@@ -15,32 +15,27 @@
         <link rel="stylesheet" href="css/templatemo_misc.css">
         <link rel="stylesheet" href="css/templatemo_style.css">
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+         <script src="js/modernizr.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
         <div class="site-header" id="headerContent"></div>
-		
-		 <div class="page-top visible-sm visible-xs" id="templatemo_index"></div>
-		
+		<div class="page-top visible-sm visible-xs" id="templatemo_index"></div>
         <div class="flexslider visible-lg" >
         	<ul class='slides' id="sliderDiv"></ul>
        	</div> 
-        
-        
         <div class="container">
             <div class="row">
                 <div class="our-listing owl-carousel"></div>
             </div>
         </div>
-
 		<div class="middle-content">&nbsp;
 			<div id="loadDiv" style="padding-left:50%; padding-top:20%">
 				<img id="loadgif" height="100px" src="img/cross1.gif"/>
 			</div>
 		</div>
-
         <div class="site-footer" id="footerContent"></div>
         
 	    <script src="js/vendor/jquery-1.11.0.min.js"></script>
@@ -99,13 +94,9 @@
 				    nextText: "&rarr;"
 				});
 
-
-				//var element = document.getElementById("loadgif");
 				var elementParent = document.getElementById("loadDiv");
-				//elementParent.removeChild(element);
 				elementParent.style.display="none";
 		    });
-
 
 			$.get('/GetDetailedPosts',{},function(responseJson){})
 		    .done(function(responseJson){
@@ -149,7 +140,6 @@
 
 		    });
 		});
-
 
 		function htmlDecode(input){
 			if(input){	
