@@ -9,8 +9,6 @@ jQuery(document).ready(function($) {
 		    nextText: "&rarr;"
 		});
 
-
-
 		$("#footerContent").load("footer.html");
 		
 		$("#headerContent").load("header.html", function(){
@@ -26,27 +24,23 @@ jQuery(document).ready(function($) {
 				li = document.getElementById('li_mob_'+liToActivate);
 				li.className= li.className+" active";
 				
+				li = document.getElementById('li_mob_nav_'+liToActivate);
+				li.firstChild.style.color= "green";
+				
 			}
 			$('.toggle-menu').click(function(){
 				$('.menu-responsive').slideToggle();
 			});
 			
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////her starts settings for the desktop top menu fixed////
 			
 			var secondaryNav 		= $('.cd-secondary-nav'),
 			secondaryNavTopPosition = secondaryNav.offset().top,
 			contentSections 		= $('.cd-section');
-		
 			$(window).on('scroll', function(){
-			
-			//on desktop - fix secondary navigation on scrolling
 			if($(window).scrollTop() > secondaryNavTopPosition ) {
-				//fix secondary navigation
 				secondaryNav.addClass('is-fixed');
-				//push the .cd-main-content giving it a top-margin
 				$('.cd-main-content').addClass('has-top-margin');	
-				//on Firefox CSS transition/animation fails when parent element changes position attribute
-				//so we to change secondary navigation childrens attributes after having changed its position value
 				setTimeout(function() {
 		            secondaryNav.addClass('animate-children');
 		            $('#cd-logo').addClass('slide-in');
@@ -61,11 +55,8 @@ jQuery(document).ready(function($) {
 					$('.cd-btn').removeClass('slide-in');
 		        }, 50);
 			}
-
-//on desktop - update the active link in the secondary fixed navigation
 			updateSecondaryNavigation();
 			});
-
 			function updateSecondaryNavigation() {
 				contentSections.each(function(){
 					var actual = $(this),
@@ -78,7 +69,53 @@ jQuery(document).ready(function($) {
 					}
 			});
 			}
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			
+////her starts settings for the mobile bottom menu button//// 
+			
+			var offset = 150;
+
+			var navigationContainer = $('#cd-nav'),
+				mainNavigation = navigationContainer.find('#cd-main-nav ul');
+
+			checkMenu();
+			$(window).scroll(function(){
+				checkMenu();
+			});
+
+			$('.cd-nav-trigger').on('click', function(){
+				$(this).toggleClass('menu-is-open');
+				mainNavigation.off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend').toggleClass('is-visible');
+
+			});
+
+			function checkMenu() {
+				if( $(window).scrollTop() > offset && !navigationContainer.hasClass('is-fixed')) {
+					if($(window).width()<1000)
+						navigationContainer.css("display","inline");
+					
+					navigationContainer.addClass('is-fixed').find('.cd-nav-trigger').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(){
+						mainNavigation.addClass('has-transitions');
+					});
+				} else if ($(window).scrollTop() <= offset) {
+					if( mainNavigation.hasClass('is-visible')  && !$('html').hasClass('no-csstransitions') ) {
+						mainNavigation.addClass('is-hidden').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+							mainNavigation.removeClass('is-visible is-hidden has-transitions');
+							navigationContainer.removeClass('is-fixed');
+							$('.cd-nav-trigger').removeClass('menu-is-open');
+							navigationContainer.css("display","none");
+						});
+					} else if( mainNavigation.hasClass('is-visible')  && $('html').hasClass('no-csstransitions') ) {
+							mainNavigation.removeClass('is-visible has-transitions');
+							navigationContainer.removeClass('is-fixed');
+							navigationContainer.css("display","none");
+							$('.cd-nav-trigger').removeClass('menu-is-open');
+					} else {
+						navigationContainer.removeClass('is-fixed');
+						navigationContainer.css("display","none");
+						mainNavigation.removeClass('has-transitions');
+					}
+				}
+			}
 			
 		});
 });
