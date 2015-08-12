@@ -57,9 +57,7 @@
 		var prayerOn = false;
 		var fromMain = false;
 		
-		$(document).ready(loadPosts());
-		
-		function loadPosts(){
+		$(document).ready(	function loadPosts(){
 			var rowDiv = "";
 			$.get('/GetPost',{postId:$postId,postType:'Prayer'},function(responseJson){})
 		    .done(function(responseJson){
@@ -88,7 +86,7 @@
 						openPrayer(zL);
 					}
 				});
-		}
+		});
 		
 		function openPrayer(prayerId){
 			var prayerTitle   	= document.getElementById("title_"+prayerId).innerHTML;
