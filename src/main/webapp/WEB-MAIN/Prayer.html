@@ -80,14 +80,17 @@
 					});
 					rowDiv += '</div>';
 					$('#container').append(rowDiv);
+					
 					if(window.location.href.indexOf("?")!= -1){
 						var zL = window.location.href.split('?')[1];
 						fromMain = true;
 						openPrayer(zL);
 					}
+					
 				});
 		});
 		
+				//window.location.assign(window.location.href += '?' +prayerId);
 		function openPrayer(prayerId){
 			var prayerTitle   	= document.getElementById("title_"+prayerId).innerHTML;
 			var prayerContent 	= document.getElementById("content_"+prayerId).innerHTML;
@@ -96,7 +99,7 @@
 			document.getElementById("myPrayersModalContent").innerHTML=prayerContent;
 			document.getElementById("myPrayersModalImage1").src="/uploads/"+prayerImage;
 			if(!fromMain)
-				window.location.assign(window.location.href += '?' +prayerId);
+				history.replaceState({page: 1}, "title 1", "?"+prayerId);
 			else
 				fromMain = false;
 		 	showPrayer();
@@ -111,15 +114,16 @@
 		function hidePrayer(){
 			prayerOn = false;
 			var zL = window.location.href.split('?')[0];
-			window.location.assign(zL)
+			history.replaceState({page: 1}, "title 1", "");
 			document.getElementById('containerP').style.display = 'none';
 			document.getElementById('container').style.display = 'inline';
 		}
 
-		window.addEventListener('popstate', function(event) {
+		/*window.addEventListener('popstate', function(event) {
 			if(prayerOn)
 				hidePrayer();
-		});
+		}
+		);*/
 		</script>
         <script src="js/bootstrap.js"></script>
         <script src="js/plugins.js"></script>
