@@ -105,17 +105,17 @@
 		}
 		
 		function showPrayer(){
+			prayerOn = true;
 			document.getElementById('containerP').style.display = 'inline';
 			document.getElementById('container').style.display = 'none';
-			prayerOn = true;
 		}
 		
 		function hidePrayer(){
+			prayerOn = false;
 			var zL = window.location.href.split('?')[0];
 			window.location.assign(zL)
 			document.getElementById('containerP').style.display = 'none';
 			document.getElementById('container').style.display = 'inline';
-			prayerOn = false;
 		}
 
 		window.addEventListener('popstate', function(event) {
