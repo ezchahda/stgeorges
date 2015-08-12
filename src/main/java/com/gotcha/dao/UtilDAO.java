@@ -19,8 +19,10 @@ public class UtilDAO {
 
 	public ArrayList<UserVO> getUser(String username) {
 
-		Connection connection = this.connectDB();
+		Connection connection = null;
 		try {
+
+			connection = this.connectDB();
 
 			ArrayList<UserVO> user = new ArrayList<UserVO>();
 			String query = "SELECT echo_name, echo_email, echo_password FROM echo_user";
@@ -42,8 +44,11 @@ public class UtilDAO {
 				user.add(userVO);
 			}
 			return user;
+		} catch (SQLException ce) {
+			System.out.println("SQL Connection error");
+			return null;
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Unknown Data Access error");
 			return null;
 		} finally {
 			this.closeConnection(connection);
@@ -51,8 +56,10 @@ public class UtilDAO {
 	}
 
 	public void addUser(String email, String name, String image, String password) {
-		Connection connection = this.connectDB();
+		Connection connection = null;
 		try {
+
+			connection = this.connectDB();
 			Statement stmt = connection.createStatement();
 
 			String sql = "INSERT INTO echo_user (echo_email, echo_name, echo_image, echo_password)"
@@ -65,7 +72,10 @@ public class UtilDAO {
 					+ "','" + password + "')";
 
 			stmt.executeUpdate(sql);
+		} catch (SQLException ce) {
+			System.out.println("SQL Connection error");
 		} catch (Exception e) {
+			System.out.println("Unknown Data Access error");
 		} finally {
 			this.closeConnection(connection);
 		}
@@ -73,8 +83,10 @@ public class UtilDAO {
 
 	public void editUser(String email, String name, String image,
 			String password) {
-		Connection connection = this.connectDB();
+		Connection connection = null;
 		try {
+
+			connection = this.connectDB();
 			Statement stmt = connection.createStatement();
 
 			String sql = "UPDATE echo_user SET echo_name = '" + name
@@ -82,8 +94,10 @@ public class UtilDAO {
 					+ password + "' WHERE echo_email = '" + email + "';";
 
 			stmt.executeUpdate(sql);
+		} catch (SQLException ce) {
+			System.out.println("SQL Connection error");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Unknown Data Access error");
 		} finally {
 			this.closeConnection(connection);
 		}
@@ -92,8 +106,10 @@ public class UtilDAO {
 	public void addPost(String postId, String postType, String postSubType,
 			String postTitle, String postContent, String postImage,
 			int postYear, int postMonth, int postDay) {
-		Connection connection = this.connectDB();
+		Connection connection = null;
 		try {
+
+			connection = this.connectDB();
 
 			Calendar calendar = Calendar.getInstance();
 			java.sql.Timestamp currentTimeStamp = new java.sql.Timestamp(
@@ -123,8 +139,10 @@ public class UtilDAO {
 
 			stmt.executeUpdate();
 
+		} catch (SQLException ce) {
+			System.out.println("SQL Connection error");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Unknown Data Access error");
 		} finally {
 			this.closeConnection(connection);
 		}
@@ -133,8 +151,10 @@ public class UtilDAO {
 	public void addEditPost(String postId, String postType, String postSubType,
 			String postTitle, String postContent, String postImage,
 			int postYear, int postMonth, int postDay) {
-		Connection connection = this.connectDB();
+		Connection connection = null;
 		try {
+
+			connection = this.connectDB();
 
 			Calendar calendar = Calendar.getInstance();
 			java.sql.Timestamp currentTimeStamp = new java.sql.Timestamp(
@@ -179,9 +199,11 @@ public class UtilDAO {
 			}
 			stmt.executeUpdate();
 
+		} catch (SQLException ce) {
+			System.out.println("SQL Connection error");
 		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
+			System.out.println("Unknown Data Access error");
+		}finally {
 			this.closeConnection(connection);
 		}
 	}
@@ -216,8 +238,12 @@ public class UtilDAO {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://" + dbhost
 					+ "/" + dbname, dbuser, dbpass);
+		} catch (SQLException ce) {
+			System.out.println("SQL Connection error");
+			return null;
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Unknown Data Access error");
+			return null;
 		}
 		return connection;
 	}
@@ -226,8 +252,10 @@ public class UtilDAO {
 		try {
 			if (c != null)
 				c.close();
+		} catch (SQLException ce) {
+			System.out.println("SQL Connection error");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Unknown Data Access error");
 		}
 	}
 
