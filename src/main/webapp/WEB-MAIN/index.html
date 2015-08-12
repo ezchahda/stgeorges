@@ -54,7 +54,7 @@
 					if(element.postImage == null || element.postImage == "null") 
 						element.postImage = "defaultSlide.jpg"; 
 
-					var theContent = element.postContent.substring(0,5000);
+					var theContent = element.postContent.substring(0,888);
 					if (isArabic(theContent))
 					 theContent = "..."+theContent;
 					else
@@ -108,7 +108,7 @@
 					if(element.postImage == null || element.postImage == "null") 
 						element.postImage = "defaultPin.jpg"; 
 
-					var theContent = element.postContent.substring(0,888);
+					var theContent = element.postContent.substring(0,5000);
 
 					rowDiv += '<div class="list-item" onClick="document.location.href=\''+element.postType+'.html?'+element.postId+'\'" style="cursor:pointer">'
                     			+ '<div class="list-thumb">'
