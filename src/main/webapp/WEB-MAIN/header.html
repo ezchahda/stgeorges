@@ -236,9 +236,11 @@ $(document).keydown(function(e) {
         	overlay();
             break;
         case 37: // left
+        	clearTimeout(timingInt);
 			goPrev();
             break;
         case 39: // right
+        	clearTimeout(timingInt);
 			goNext();
             break;
         default: return;
