@@ -24,8 +24,8 @@ function loadJsonIntoContainer(jsonObj){
 		hasImage = false; 
 
 	rowDiv = 	'<div class="row" id="'+element.postId+'">'+
-					'<div class="visible-lg visible-md col-md-2"></div>'+
-		            	'<div class="col-md-8 blog-box">'+
+					'<div class="visible-lg visible-md col-md-1"></div>'+
+		            	'<div class="col-md-10 blog-box">'+
 		                	'<div class="widget-item">'+
 		                    	'<div class="post-small" style="margin-top:15px;margin-bottom:15px">'+
 			                    	'<div class="post-date">'+
@@ -56,7 +56,7 @@ function loadJsonIntoContainer(jsonObj){
 					'<li>Share<a href="#" class="fa fa-facebook" onClick="FBShare(\''+element.postId+'\',\''+element.postTitle+'\',\''+element.postSubType+'\',\''+element.postImage+'\')"></a></li>'+
 		        '</ul>'+
 			    '</div></div>'+
-				'<div class="visible-lg visible-md col-md-2 separator"></div></div>';
+				'<div class="visible-lg visible-md col-md-1 separator"></div></div>';
 			                
 	$('#container').append(rowDiv);
 	

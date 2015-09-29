@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
 				$('.menu-responsive').slideToggle();
 			});
 			
-////her starts settings for the desktop top menu fixed////
+////here starts settings for the desktop top menu fixed////
 			
 			var secondaryNav 		= $('.cd-secondary-nav'),
 			secondaryNavTopPosition = secondaryNav.offset().top,
@@ -70,7 +70,7 @@ jQuery(document).ready(function($) {
 			});
 			}
 			
-////her starts settings for the mobile bottom menu button//// 
+////here starts settings for the mobile bottom menu button//// 
 			
 			var offset = 150;
 
