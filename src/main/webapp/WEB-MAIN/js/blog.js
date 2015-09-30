@@ -1,5 +1,5 @@
 function loadPosts(filterQuery){
-	$.get('/GetPost',{postId:$postId,postType:'Blog',postSubType:encodeURIComponent(filterQuery)},function(responseJson){})
+	$.get('/GetPost',{postId:$postId,postType:'Blog',postSubType:escape(filterQuery)},function(responseJson){})
 		.done(function(responseJson){
 			BigJSON = responseJson;
 			loadJsonIntoContainer(responseJson);

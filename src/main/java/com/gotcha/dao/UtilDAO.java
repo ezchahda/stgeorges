@@ -237,7 +237,7 @@ public class UtilDAO {
 
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://" + dbhost
-					+ "/" + dbname+"?useUnicode=true&characterEncoding=utf-8", dbuser, dbpass);
+					+ "/" + dbname, dbuser, dbpass);
 		} catch (SQLException ce) {
 			System.out.println("SQL Connection error");
 			return null;
