@@ -22,10 +22,10 @@ public class UtilBO {
 		return result; 
 	}
 	
-	public ArrayList<PostVO> getPost(String postId, String postType){
+	public ArrayList<PostVO> getPost(String postId, String postType,String postSubType){
 		UtilDAO utilDAO = new UtilDAO();
 		
-		ArrayList<PostVO> result = utilDAO.getPost(postId,postType);
+		ArrayList<PostVO> result = utilDAO.getPost(postId,postType,postSubType);
 		
 		return result; 
 	}

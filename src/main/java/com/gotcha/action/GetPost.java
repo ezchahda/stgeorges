@@ -25,6 +25,7 @@ public class GetPost extends HttpServlet{
 			
 			String postId = null;
 			String postType = null;
+			String postSubType = null;
 			
 			if(request.getParameter("postId")!=null && request.getParameter("postId").length()>1)
 				postId = request.getParameter("postId");
@@ -32,15 +33,18 @@ public class GetPost extends HttpServlet{
 			if(request.getParameter("postType")!=null && request.getParameter("postType").length()>1)
 				postType = request.getParameter("postType");
 			
+			if(request.getParameter("postSubType")!=null && request.getParameter("postSubType").length()>1)
+				postSubType = request.getParameter("postSubType");
+			
 			UtilBO utilBO 	= new UtilBO();
 			
-			resultMap 		= utilBO.getPost(postId,postType);
+			resultMap 		= utilBO.getPost(postId,postType,postSubType);
 			
-			 Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+			Gson gson = new GsonBuilder().disableHtmlEscaping().create();
 			 
-			 json = gson.toJson(resultMap);
+			json = gson.toJson(resultMap);
 			
-			 response.setContentType("application/json");
+			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().write(json);
 	    }

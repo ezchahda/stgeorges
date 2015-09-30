@@ -259,7 +259,7 @@ public class UtilDAO {
 		}
 	}
 
-	public ArrayList<PostVO> getPost(String postId, String postType) {
+	public ArrayList<PostVO> getPost(String postId, String postType,String postSubType) {
 
 		Connection connection = null;
 		try {
@@ -275,8 +275,13 @@ public class UtilDAO {
 			if (postType != "" && postType != null)
 				query += " AND post_type='" + postType + "'";
 
+			if (postSubType != "" && postSubType != null)
+				query += " AND post_sub_type='" + postSubType + "'";
+			
 			query += " ORDER BY post_time_stamp desc";
 
+			System.out.println("---------------------------------------------------------------"+query);
+			
 			ResultSet rs = connection.createStatement().executeQuery(query);
 
 			while (rs.next()) {
@@ -285,7 +290,8 @@ public class UtilDAO {
 				String postTitle = rs.getString("post_title");
 				String postImage = rs.getString("post_image");
 				String postContent = rs.getString("post_content");
-				String postSubType = rs.getString("post_sub_type");
+				
+				postSubType = rs.getString("post_sub_type");
 				postType = rs.getString("post_type");
 				postId = rs.getString("post_id");
 

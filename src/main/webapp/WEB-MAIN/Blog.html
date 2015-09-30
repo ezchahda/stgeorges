@@ -51,15 +51,46 @@
         <div class="page-top" id="templatemo_blog"></div>
 
         <div class="middle-content blog-content">
-            <div class="container" id="container">
-            </div>
+	       	<div class="row">
+	        	<div class="visible-lg visible-md col-md-1">
+	        	</div>
+	        	<div class="visible-lg visible-md col-md-10">
+		        		<div class="search-bar">
+		        			<div class="submit-filter-selected" onclick="filterOn(this)" values=""><span>كل المواضيع</span></div>
+			        		<div class="submit-filter" onclick="filterOn(this)" values="أيقونات"><span>أيقونات</span></div>
+			        		<div class="submit-filter" onclick="filterOn(this)" values="قصص و حكايات"><span>قصص و حكايات</span></div>
+			        		<div class="submit-filter" onclick="filterOn(this)" values="سير قديسين"><span>سير قديسين</span></div>
+			        		<div class="submit-filter" onclick="filterOn(this)" values="معلومات و مستندات"><span>معلومات و مستندات</span></div>
+		        		</div>
+	        	</div>
+	        	<div class="visible-lg visible-md col-md-1">
+	        	</div>
+			</div>
+			
+			<div class="row">            
+		        <div class="container container-blog" id="container">
+			        <div class="col-md-6 blog-box" id="leftContainer"></div>
+					<div class="col-md-6 blog-box" id="rightContainer"></div>
+				</div>
+				
+				<div class="visible-lg visible-md col-md-1 separator"></div>
+			</div>
+			<!-- 
+			<div class="row">
+	         	<div class="visible-lg visible-md col-md-5"></div>
+	         	<div class="visible-lg visible-md col-md-2"><input type="button" value="المزيد" style="width: 100%"/></div>
+	         	<div class="visible-lg visible-md col-md-5" ></div>
+			</div>
+			 -->
+			 
         </div> 
 
        	<div id="loadDiv" style="padding-left:50%">
 			<img id="loadgif" height="100px" src="img/cross1.gif"/>
 		</div>
-        <div class="site-footer" id="footerContent">
-        </div>
+		
+        <div class="site-footer" id="footerContent"></div>
+        
 		<script type="text/javascript" >
 		var $postId = "";
 		var BigJSON;
