@@ -40,13 +40,13 @@ public class GetPost extends HttpServlet{
 				postSubType = request.getParameter("postSubType");
 				
 				if(postSubType.equals("icons"))
-						postSubType = "أيقونات";
+						postSubType = "&#1571;&#1610;&#1602;&#1608;&#1606;&#1575;&#1578;";
 				if(postSubType.equals("stories"))
-					postSubType = "قصص و حكايات";
+					postSubType = "&#1602;&#1589;&#1589; &#1608; &#1581;&#1603;&#1575;&#1610;&#1575;&#1578;";
 				if(postSubType.equals("saints"))
 					postSubType = "&#1587;&#1610;&#1585; &#1602;&#1583;&#1610;&#1587;&#1610;&#1606;";
 				if(postSubType.equals("info"))
-					postSubType = "معلومات و مستندات";
+					postSubType = "&#1605;&#1593;&#1604;&#1608;&#1605;&#1575;&#1578; &#1608; &#1605;&#1587;&#1578;&#1606;&#1583;&#1575;&#1578;";
 			
 			}
 			
