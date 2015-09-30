@@ -1,6 +1,7 @@
 package com.gotcha.action;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -33,23 +34,8 @@ public class GetPost extends HttpServlet{
 			if(request.getParameter("postType")!=null && request.getParameter("postType").length()>1)
 				postType = request.getParameter("postType");
 			
-			if(request.getParameter("postSubType")!=null && request.getParameter("postSubType").length()>1){
-				
-				postSubType = new String(request.getParameter("postSubType").getBytes("UTF-8"), "iso-8859-1");
-				
-				System.out.println("-----------------------------------");
-				System.out.println(postSubType);
-				System.out.println("-----------------------------------");
-				
-//				if(postSubType.indexOf("%25")>0)
-//					postSubType = postSubType.replaceAll("25", "");
-//				
-//				System.out.println("-----------------------------------");
-//				System.out.println(postSubType);
-//				System.out.println("-----------------------------------");
-			}
-			
-			
+			if(request.getParameter("postSubType")!=null && request.getParameter("postSubType").length()>1)
+				postSubType = URLDecoder.decode(request.getParameter("postSubType").replace("+", "%2B"), "UTF-8").replace("%2B", "+");
 			
 			UtilBO utilBO 	= new UtilBO();
 			
