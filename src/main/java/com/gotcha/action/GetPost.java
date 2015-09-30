@@ -35,8 +35,7 @@ public class GetPost extends HttpServlet{
 			
 			if(request.getParameter("postSubType")!=null && request.getParameter("postSubType").length()>1){
 				
-				
-				postSubType = new String(request.getParameter("postSubType").getBytes("iso-8859-1"), "UTF-8");
+				postSubType = new String(request.getParameter("postSubType").getBytes("UTF-8"), "iso-8859-1");
 				
 				System.out.println("-----------------------------------");
 				System.out.println(postSubType);
