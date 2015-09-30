@@ -107,7 +107,6 @@ function filterOn(obj){
 	if(obj.attributes[0]!=null){
 		filterVal=obj.attributes[0].nodeValue;
 		filterVal=escape(filterVal);
-		alert(filterVal);
 	}
 	
 	$("#leftContainer").empty();
