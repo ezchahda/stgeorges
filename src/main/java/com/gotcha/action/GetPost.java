@@ -36,7 +36,7 @@ public class GetPost extends HttpServlet{
 			if(request.getParameter("postType")!=null && request.getParameter("postType").length()>1)
 				postType = request.getParameter("postType");
 			
-			if(request.getParameter("postSubType")!=null && request.getParameter("postSubType").length()>1){
+			if(request.getParameter("postSubType")!=null && request.getParameter("postSubType").length()>1 && !request.getParameter("postSubType").equals("undefined")){
 				postSubType = request.getParameter("postSubType");
 				System.out.println("b4 decoding:"+postSubType);
 				postSubType = URLDecoder.decode(postSubType.replace("+", "%2B"), "UTF-8").replace("%2B", "+");
