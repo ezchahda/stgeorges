@@ -104,13 +104,13 @@ function filterOn(obj){
 	
 	obj.className = "submit-filter-selected";
 	
-	if(obj.attributes[0]!=null){
+	if(obj.attributes[0]!=null && obj.attributes[0]!=""){
 		filterVal=obj.attributes[0].nodeValue;
 		filterVal=escape(filterVal);
 	}
 	
-	$("#leftContainer").empty();
-	$("#rightContainer").empty();
+	document.getElementById("leftContainer").innerHTML="";
+	document.getElementById("rightContainer").innerHTML="";
 	loadPosts(filterVal);
 	
 }
