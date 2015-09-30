@@ -280,8 +280,6 @@ public class UtilDAO {
 			
 			query += " ORDER BY post_time_stamp desc";
 
-			System.out.println("---------------------------------------------------------------"+query);
-			
 			ResultSet rs = connection.createStatement().executeQuery(query);
 
 			while (rs.next()) {
