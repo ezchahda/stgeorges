@@ -44,7 +44,7 @@ public class GetPost extends HttpServlet{
 				if(postSubType.equals("stories"))
 					postSubType = "قصص و حكايات";
 				if(postSubType.equals("saints"))
-					postSubType = "سير قديسين";
+					postSubType = "&#1587;&#1610;&#1585; &#1602;&#1583;&#1610;&#1587;&#1610;&#1606;";
 				if(postSubType.equals("info"))
 					postSubType = "معلومات و مستندات";
 			

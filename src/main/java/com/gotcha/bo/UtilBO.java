@@ -25,8 +25,6 @@ public class UtilBO {
 	public ArrayList<PostVO> getPost(String postId, String postType,String postSubType){
 		UtilDAO utilDAO = new UtilDAO();
 		
-		System.out.println("BO----------->"+postSubType);
-		
 		ArrayList<PostVO> result = utilDAO.getPost(postId,postType,postSubType);
 		
 		return result; 
