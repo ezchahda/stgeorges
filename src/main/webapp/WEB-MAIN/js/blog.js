@@ -106,7 +106,6 @@ function filterOn(obj){
 	
 	if(obj.attributes[0]!=null && obj.attributes[0]!=""){
 		filterVal=obj.attributes[0].nodeValue;
-		filterVal=escape(filterVal);
 	}
 	
 	document.getElementById("leftContainer").innerHTML="";

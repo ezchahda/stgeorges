@@ -34,9 +34,20 @@ public class GetPost extends HttpServlet{
 				postType = request.getParameter("postType");
 			
 			if(request.getParameter("postSubType")!=null && request.getParameter("postSubType").length()>1){
-				postSubType = request.getParameter("postSubType");
-				if(postSubType.indexOf("%25")>0)
-					postSubType = postSubType.replaceAll("25", "");
+				
+				
+				postSubType = new String(request.getParameter("postSubType").getBytes("iso-8859-1"), "UTF-8");
+				
+				System.out.println("-----------------------------------");
+				System.out.println(postSubType);
+				System.out.println("-----------------------------------");
+				
+//				if(postSubType.indexOf("%25")>0)
+//					postSubType = postSubType.replaceAll("25", "");
+//				
+//				System.out.println("-----------------------------------");
+//				System.out.println(postSubType);
+//				System.out.println("-----------------------------------");
 			}
 			
 			
