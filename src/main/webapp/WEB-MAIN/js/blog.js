@@ -104,8 +104,11 @@ function filterOn(obj){
 	
 	obj.className = "submit-filter-selected";
 	
-	if(obj.attributes[0]!=null)
+	if(obj.attributes[0]!=null){
 		filterVal=obj.attributes[0].nodeValue;
+		filterVal=encodeURIComponent(filterVal);
+	}
+	
 	$("#leftContainer").empty();
 	$("#rightContainer").empty();
 	loadPosts(filterVal);
