@@ -38,9 +38,17 @@ public class GetPost extends HttpServlet{
 			
 			if(request.getParameter("postSubType")!=null && request.getParameter("postSubType").length()>1 && !request.getParameter("postSubType").equals("undefined")){
 				postSubType = request.getParameter("postSubType");
-			}
+				
+				if(postSubType.equals("icons"))
+						postSubType = "أيقونات";
+				if(postSubType.equals("stories"))
+					postSubType = "قصص و حكايات";
+				if(postSubType.equals("saints"))
+					postSubType = "سير قديسين";
+				if(postSubType.equals("info"))
+					postSubType = "معلومات و مستندات";
 			
-			System.out.println("after decoding:"+postSubType);
+			}
 			
 			UtilBO utilBO 	= new UtilBO();
 			

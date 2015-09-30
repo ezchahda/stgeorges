@@ -280,6 +280,9 @@ public class UtilDAO {
 			
 			query += " ORDER BY post_time_stamp desc";
 
+			
+			System.out.println("DAO----------->"+postSubType);
+			System.out.println("DAO query----------->"+query);
 			ResultSet rs = connection.createStatement().executeQuery(query);
 
 			while (rs.next()) {
