@@ -107,7 +107,7 @@ function filterOn(obj){
 	if(obj.attributes[0]!=null)
 		filterVal=obj.attributes[0].nodeValue;
 	$("#leftContainer").empty();
-	$("#righttContainer").empty();
+	$("#rightContainer").empty();
 	loadPosts(filterVal);
 	
 }
