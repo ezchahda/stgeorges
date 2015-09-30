@@ -106,7 +106,7 @@ function filterOn(obj){
 	
 	if(obj.attributes[0]!=null){
 		filterVal=obj.attributes[0].nodeValue;
-		filterVal=encodeURIComponent(filterVal);
+		filterVal=escape(filterVal);
 	}
 	
 	$("#leftContainer").empty();
