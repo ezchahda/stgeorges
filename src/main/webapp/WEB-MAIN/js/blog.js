@@ -66,9 +66,9 @@ function loadJsonIntoContainer(jsonObj){
 					'</div>';
 		
 		if(index %2 == 0)
-			$('#leftContainer').append(rowDiv);
-		else
 			$('#rightContainer').append(rowDiv);
+		else
+			$('#leftContainer').append(rowDiv);
 	
 	});//end of each
 }

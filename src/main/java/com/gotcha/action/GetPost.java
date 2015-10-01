@@ -40,7 +40,7 @@ public class GetPost extends HttpServlet{
 				postSubType = request.getParameter("postSubType");
 				
 				if(postSubType.equals("icons"))
-						postSubType = "&#1571;&#1610;&#1602;&#1608;&#1606;&#1575;&#1578;";
+					postSubType = "&#1571;&#1610;&#1602;&#1608;&#1606;&#1575;&#1578;";
 				if(postSubType.equals("stories"))
 					postSubType = "&#1602;&#1589;&#1589; &#1608; &#1581;&#1603;&#1575;&#1610;&#1575;&#1578;";
 				if(postSubType.equals("saints"))
