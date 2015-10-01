@@ -85,6 +85,8 @@ function loadJsonIntoContainer(jsonObj){
 			$('#rightContainer').append(rowDiv);
 		else
 			$('#leftContainer').append(rowDiv);
+		
+		$('#mobileContainer').append(rowDiv);
 	
 	});//end of each
 }
