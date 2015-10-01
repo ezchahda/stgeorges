@@ -1,8 +1,14 @@
 function loadPosts(filterQuery){
-	$.get('/GetPost',{postId:$postId,postType:'Blog',postSubType:escape(filterQuery)},function(responseJson){})
+	$.get('/GetPost',{postId:$postId,postType:'Blog',postSubType:escape(filterQuery),startAt:currentLoad},function(responseJson){})
 		.done(function(responseJson){
-			BigJSON = responseJson;
-			loadJsonIntoContainer(responseJson);
+			if(responseJson == "[]" || responseJson == null || resoinseJson == "null"){
+				document.getElementById('loadMoreId').style.display='none';
+				document.getElementById('noMoreId').style.display='inline';
+			}
+			else{
+				loadJsonIntoContainer(responseJson);
+				currentLoad = currentLoad+5;
+			}
 			var scrollToId = window.location.href;
 			if(scrollToId.indexOf("?")>0){
 				scrollToId = scrollToId.split("?")[1];
@@ -94,9 +100,10 @@ function  strip(html) {
 	return tmp.textContent || tmp.innerText || "";
 }
 			  
+var selectedFilter = "";
 
 function filterOn(obj){
-
+	currentLoad = 0;
 	var oldObj = document.getElementsByClassName('submit-filter-selected')[0];
 	var filterVal="";
 	if(oldObj != null)
@@ -110,6 +117,13 @@ function filterOn(obj){
 	
 	document.getElementById("leftContainer").innerHTML="";
 	document.getElementById("rightContainer").innerHTML="";
+	selectedFilter = filterVal;
 	loadPosts(filterVal);
-	
+	document.getElementById('loadMoreId').style.display='inline';
+	document.getElementById('noMoreId').style.display='none';
+}
+
+var currentLoad = 0;
+function loadMore(){
+	loadPosts(selectedFilter);
 }

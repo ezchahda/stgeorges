@@ -75,13 +75,16 @@
 				
 				<div class="visible-lg visible-md col-md-1 separator"></div>
 			</div>
-			<!-- 
-			<div class="row">
+			<div class="row" id="loadMoreId">
 	         	<div class="visible-lg visible-md col-md-5"></div>
-	         	<div class="visible-lg visible-md col-md-2"><input type="button" value="المزيد" style="width: 100%"/></div>
+	         	<div class="visible-lg visible-md col-md-2"><input type="button" value="المزيد" style="width: 100%" onclick="loadMore();"/></div>
 	         	<div class="visible-lg visible-md col-md-5" ></div>
 			</div>
-			 -->
+			<div class="row" id="noMoreId" style="display:none">
+	         	<div class="visible-lg visible-md col-md-5"></div>
+	         	<div class="visible-lg visible-md col-md-2"><input type="button" value="لا يوجد المزيد" style="width: 100%;" disabled="disabled" onclick="loadMore();"/></div>
+	         	<div class="visible-lg visible-md col-md-5" ></div>
+			</div>
 			 
         </div> 
 
@@ -93,7 +96,6 @@
         
 		<script type="text/javascript" >
 		var $postId = "";
-		var BigJSON;
 		$(document).ready(loadPosts());
 		</script>
         <script src="js/bootstrap.js"></script>

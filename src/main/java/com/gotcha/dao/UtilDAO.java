@@ -259,7 +259,7 @@ public class UtilDAO {
 		}
 	}
 
-	public ArrayList<PostVO> getPost(String postId, String postType,String postSubType) {
+	public ArrayList<PostVO> getPost(String postId, String postType,String postSubType,int startingPoint) {
 
 		Connection connection = null;
 		try {
@@ -278,8 +278,12 @@ public class UtilDAO {
 			if (postSubType != "" && postSubType != null)
 				query += " AND post_sub_type='" + postSubType + "'";
 			
-			query += " ORDER BY post_time_stamp desc";
+			query += " ORDER BY post_time_stamp desc ";
+			
+			query += " LIMIT 5 OFFSET "+startingPoint;
 
+			System.out.println("query is:" +query);
+			
 			ResultSet rs = connection.createStatement().executeQuery(query);
 
 			while (rs.next()) {

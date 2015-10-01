@@ -28,7 +28,7 @@ public class GetPost extends HttpServlet{
 			String postId = null;
 			String postType = null;
 			String postSubType = null;
-			
+			String startAt = "0";
 			
 			if(request.getParameter("postId")!=null && request.getParameter("postId").length()>1)
 				postId = request.getParameter("postId");
@@ -50,9 +50,13 @@ public class GetPost extends HttpServlet{
 			
 			}
 			
+			if(request.getParameter("startAt")!=null && request.getParameter("startAt").length()>1){
+				startAt = request.getParameter("startAt");
+			}
+			
 			UtilBO utilBO 	= new UtilBO();
 			
-			resultMap 		= utilBO.getPost(postId,postType,postSubType);
+			resultMap 		= utilBO.getPost(postId,postType,postSubType,startAt);
 			
 			Gson gson = new GsonBuilder().disableHtmlEscaping().create();
 			 
