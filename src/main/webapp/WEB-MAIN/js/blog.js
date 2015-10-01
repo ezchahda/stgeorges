@@ -28,7 +28,7 @@ function loadPosts(filterQuery){
 			var elementParent = document.getElementById("loadDiv");
 			elementParent.style.display="none";
 			
-			document.getElementById("loadMoreBtn").disabled="false";
+			$("#loadMoreBtn").removeAttr( "disabled" );
 			
 		});
 }
@@ -139,6 +139,6 @@ function filterOn(obj){
 
 var currentLoad = 0;
 function loadMore(){
-	document.getElementById("loadMoreBtn").disabled="disabled";
+	$("#loadMoreBtn").attr( "disabled","disabled" );
 	loadPosts(selectedFilter);
 }
