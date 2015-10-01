@@ -280,7 +280,7 @@ public class UtilDAO {
 			
 			query += " ORDER BY post_time_stamp desc ";
 			
-			query += " LIMIT 5 OFFSET "+startingPoint;
+			query += " LIMIT 4 OFFSET "+startingPoint;
 
 			System.out.println("query is:" +query);
 			

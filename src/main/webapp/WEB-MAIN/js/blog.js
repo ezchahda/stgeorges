@@ -7,7 +7,7 @@ function loadPosts(filterQuery){
 			}
 			else{
 				loadJsonIntoContainer(responseJson);
-				currentLoad = currentLoad+5;
+				currentLoad = currentLoad+4;
 			}
 			var scrollToId = window.location.href;
 			if(scrollToId.indexOf("?")>0){
