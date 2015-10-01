@@ -1,7 +1,7 @@
 function loadPosts(filterQuery){
 	$.get('/GetPost',{postId:$postId,postType:'Blog',postSubType:escape(filterQuery),startAt:currentLoad},function(responseJson){})
 		.done(function(responseJson){
-			if(responseJson == "[]" || responseJson == null || resoinseJson == "null"){
+			if(responseJson == "[]" || responseJson == null || responseJson == "null"){
 				document.getElementById('loadMoreId').style.display='none';
 				document.getElementById('noMoreId').style.display='inline';
 			}
