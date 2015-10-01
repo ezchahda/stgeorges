@@ -259,7 +259,7 @@ public class UtilDAO {
 		}
 	}
 
-	public ArrayList<PostVO> getPost(String postId, String postType,String postSubType,int startingPoint) {
+	public ArrayList<PostVO> getPost(String postId, String postType,String postSubType,String startAt) {
 
 		Connection connection = null;
 		try {
@@ -280,10 +280,8 @@ public class UtilDAO {
 			
 			query += " ORDER BY post_time_stamp desc ";
 			
-			query += " LIMIT 4 OFFSET "+startingPoint;
+			query += " LIMIT 4 OFFSET "+startAt;
 
-			System.out.println("query is:" +query);
-			
 			ResultSet rs = connection.createStatement().executeQuery(query);
 
 			while (rs.next()) {

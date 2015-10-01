@@ -1,6 +1,7 @@
 function loadPosts(filterQuery){
 	$.get('/GetPost',{postId:$postId,postType:'Blog',postSubType:escape(filterQuery),startAt:currentLoad},function(responseJson){})
 		.done(function(responseJson){
+			
 			if(responseJson == "[  ]" || responseJson == null || responseJson == "null"){
 				document.getElementById('loadMoreId').style.display='none';
 				document.getElementById('noMoreId').style.display='inline';
@@ -9,6 +10,7 @@ function loadPosts(filterQuery){
 				loadJsonIntoContainer(responseJson);
 				currentLoad = currentLoad+4;
 			}
+			
 			var scrollToId = window.location.href;
 			if(scrollToId.indexOf("?")>0){
 				scrollToId = scrollToId.split("?")[1];
@@ -16,8 +18,10 @@ function loadPosts(filterQuery){
 					scrollTop: $("#"+scrollToId).offset().top
 				}, 1000);
 			}
+			
 			var elementParent = document.getElementById("loadDiv");
 			elementParent.style.display="none";
+			
 		});
 }
 		

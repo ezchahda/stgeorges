@@ -50,7 +50,7 @@ public class GetPost extends HttpServlet{
 			
 			}
 			
-			if(request.getParameter("startAt")!=null && request.getParameter("startAt").length()>1){
+			if(request.getParameter("startAt")!=null && request.getParameter("startAt").length()>0){
 				startAt = request.getParameter("startAt");
 			}
 			

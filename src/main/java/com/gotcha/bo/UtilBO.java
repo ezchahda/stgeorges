@@ -24,8 +24,8 @@ public class UtilBO {
 	
 	public ArrayList<PostVO> getPost(String postId, String postType,String postSubType,String startAt){
 		UtilDAO utilDAO = new UtilDAO();
-		int startingPoint = Integer.parseInt(startAt);
-		ArrayList<PostVO> result = utilDAO.getPost(postId,postType,postSubType,startingPoint);
+		
+		ArrayList<PostVO> result = utilDAO.getPost(postId,postType,postSubType,startAt);
 		
 		return result; 
 	}
