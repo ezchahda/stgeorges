@@ -118,16 +118,16 @@ var selectedFilter = "";
 
 function filterOn(obj){
 	currentLoad = 0;
-	var oldObj = document.getElementsByClassName('submit-filter-selected')[0];
+	var oldObj = $('.submit-filter-selected');
 	var filterVal="";
 	if(oldObj != null)
-		oldObj.className = 'submit-filter';
+		oldObj.removeClass("submit-filter-selected").addClass('submit-filter');
 	
 	obj.className = "submit-filter-selected";
 	
-	if(obj.attributes[0]!=null && obj.attributes[0]!=""){
-		filterVal=obj.attributes[0].nodeValue;
-	}
+	var newObj = $('.submit-filter-selected');
+	
+	filterVal= newObj.attr("values");
 	
 	document.getElementById("leftContainer").innerHTML="";
 	document.getElementById("rightContainer").innerHTML="";
