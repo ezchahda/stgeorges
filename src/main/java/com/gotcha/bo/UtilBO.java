@@ -66,7 +66,7 @@ public class UtilBO {
 		UtilDAO utilDAO  = new UtilDAO();
 		
 		int postYear	= Calendar.getInstance().get(Calendar.YEAR);
-		int postMonth	= Calendar.getInstance().get(Calendar.MONTH);
+		int postMonth	= Calendar.getInstance().get(Calendar.MONTH+1);
 		int postDay		= Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 		
 		if(post_image == null)
@@ -84,8 +84,9 @@ public class UtilBO {
 	public void addEditPost(String post_id, String post_title, String post_type, String post_sub_type, String post_content,String post_image){
 		UtilDAO utilDAO  = new UtilDAO();
 		
+		
 		int postYear	= Calendar.getInstance().get(Calendar.YEAR);
-		int postMonth	= Calendar.getInstance().get(Calendar.MONTH);
+		int postMonth	= Calendar.getInstance().get(Calendar.MONTH+1);
 		int postDay		= Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 		
 		try{
