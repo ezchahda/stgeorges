@@ -30,7 +30,6 @@ public class SaveEditPost extends HttpServlet {
 
 		String post_id = "";
 		String post_title = "";
-		String post_date = "";
 		String post_content = "";
 		String post_image = null;
 		String post_type = "";
@@ -50,9 +49,6 @@ public class SaveEditPost extends HttpServlet {
 						
 						if (paramName.equals("postTitle"))
 							post_title = paramValue;
-
-						if (paramName.equals("postDate"))
-							post_date = paramValue;
 
 						if (paramName.equals("postContent"))
 							post_content = paramValue;
@@ -92,7 +88,7 @@ public class SaveEditPost extends HttpServlet {
 		}
 		UtilBO utilBO = new UtilBO();
 		
-		utilBO.addEditPost(post_id,post_title, post_type, post_sub_type, post_date,post_content, post_image);
+		utilBO.addEditPost(post_id,post_title, post_type, post_sub_type,post_content, post_image);
 
 		Cookie postsCookie = new Cookie("totalPosts", ""+ utilBO.getTotalPosts());
 		response.addCookie(postsCookie);

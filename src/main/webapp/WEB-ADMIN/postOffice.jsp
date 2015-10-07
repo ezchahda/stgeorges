@@ -92,13 +92,6 @@
 									</div>
 									
 									<div class="control-group">
-									  <label class="control-label" for="date01"> Date</label>
-									  <div class="controls">
-										<input type="text" class="input-xlarge datepicker" id="date01" name="postDate" required>
-									  </div>
-									</div>
-									
-									<div class="control-group">
 									  <label class="control-label" for="fileInput"> Image</label>
 									  <div class="controls">
 										<input class="input-file uniform_on" id="fileInput" type="file" name="postImage">

@@ -124,12 +124,6 @@
 										<input type="text" class="span6" id="edit_blog_subtype" name="postSubType" required>
 									  </div>
 									</div>
-									<div class="control-group">
-									  <label class="control-label" for="date01">Post Date</label>
-									  <div class="controls">
-										<input type="text" class="input-xlarge datepicker" id="edit_blog_date" name="postDate" required>
-									  </div>
-									</div>
 									
 									<div class="control-group">
 									  <label class="control-label" for="fileInput">Current Image</label>

@@ -1,6 +1,7 @@
 package com.gotcha.bo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.UUID;
 
 import com.gotcha.dao.UtilDAO;
@@ -61,19 +62,12 @@ public class UtilBO {
 		return utilDAO.getTotalPosts();
 	}
 	
-	public void addPost(String post_title, String post_type, String post_sub_type, String post_date, String post_content,String post_image){
+	public void addPost(String post_title, String post_type, String post_sub_type, String post_content,String post_image){
 		UtilDAO utilDAO  = new UtilDAO();
 		
-		int postYear	= 1980;
-		int postMonth	= 1;
-		int postDay		= 1;
-		
-		if(post_date != null){
-		String[] postDateArray 	= post_date.split("/");
-		postYear	= Integer.parseInt(postDateArray[2]);
-		postMonth	= Integer.parseInt(postDateArray[0]);
-		postDay		= Integer.parseInt(postDateArray[1]);
-		}
+		int postYear	= Calendar.getInstance().get(Calendar.YEAR);
+		int postMonth	= Calendar.getInstance().get(Calendar.MONTH);
+		int postDay		= Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 		
 		if(post_image == null)
 			post_image = "null";
@@ -87,13 +81,12 @@ public class UtilBO {
 		}
 	}
 	
-	public void addEditPost(String post_id, String post_title, String post_type, String post_sub_type, String post_date, String post_content,String post_image){
+	public void addEditPost(String post_id, String post_title, String post_type, String post_sub_type, String post_content,String post_image){
 		UtilDAO utilDAO  = new UtilDAO();
 		
-		String[] postDateArray 	= post_date.split("/");
-		int postYear	= Integer.parseInt(postDateArray[2]);
-		int postMonth	= Integer.parseInt(postDateArray[0]);
-		int postDay		= Integer.parseInt(postDateArray[1]);
+		int postYear	= Calendar.getInstance().get(Calendar.YEAR);
+		int postMonth	= Calendar.getInstance().get(Calendar.MONTH);
+		int postDay		= Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 		
 		try{
 			

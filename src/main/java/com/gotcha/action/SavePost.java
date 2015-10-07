@@ -29,7 +29,6 @@ public class SavePost extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		String post_title = "";
-		String post_date = "";
 		String post_content = "";
 		String post_image = null;
 		String post_type = "";
@@ -46,9 +45,6 @@ public class SavePost extends HttpServlet {
 
 						if (paramName.equals("postTitle"))
 							post_title = paramValue;
-
-						if (paramName.equals("postDate"))
-							post_date = paramValue;
 
 						if (paramName.equals("postContent"))
 							post_content = paramValue;
@@ -85,17 +81,9 @@ public class SavePost extends HttpServlet {
 			response.sendRedirect("WEB-ADMIN/postOffice.jsp");
 			XX.printStackTrace();
 		}
-		// } else {
-		// post_title = request.getParameter("postTitle");
-		// post_date = request.getParameter("postDate");
-		// post_content = request.getParameter("postContent");
-		// post_type = request.getParameter("postType");
-		// post_sub_type = request.getParameter("postSubType");
-		// }
 		
 		UtilBO utilBO = new UtilBO();
-		utilBO.addPost(post_title, post_type, post_sub_type, post_date,
-				post_content, post_image);
+		utilBO.addPost(post_title, post_type, post_sub_type, post_content, post_image);
 
 		Cookie postsCookie = new Cookie("totalPosts", utilBO.getTotalPosts()+"");
 		response.addCookie(postsCookie);
