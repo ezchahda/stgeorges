@@ -66,7 +66,7 @@ public class UtilBO {
 		UtilDAO utilDAO  = new UtilDAO();
 		
 		int postYear	= Calendar.getInstance().get(Calendar.YEAR);
-		int postMonth	= Calendar.getInstance().get(Calendar.MONTH+1);
+		int postMonth	= Calendar.getInstance().get(Calendar.MONTH)+1;
 		int postDay		= Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 		
 		if(post_image == null)
@@ -86,7 +86,7 @@ public class UtilBO {
 		
 		
 		int postYear	= Calendar.getInstance().get(Calendar.YEAR);
-		int postMonth	= Calendar.getInstance().get(Calendar.MONTH+1);
+		int postMonth	= Calendar.getInstance().get(Calendar.MONTH)+1;
 		int postDay		= Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 		
 		try{
