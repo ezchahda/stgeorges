@@ -37,19 +37,19 @@
 
 	<!-- The fav icon -->
 	<link rel="shortcut icon" href="img/favicon.ico">
-	
+
 </head>
 
 <body>
 		<div class="container-fluid">
 		<div class="row-fluid">
-		
+
 			<div class="row-fluid">
 				<div class="span12 center login-header">
 					<h2>St Georges Church Batroun | Admin Page</h2>
 				</div><!--/span-->
 			</div><!--/row-->
-			
+
 			<div class="row-fluid">
 				<div class="well span5 center login-box">
 					<div class="alert alert-info" id="informaDiv">
@@ -75,7 +75,7 @@
 				</div><!--/span-->
 			</div><!--/row-->
 				</div><!--/fluid-row-->
-		
+
 	</div><!--/.fluid-container-->
 
 	<!-- external javascript
@@ -151,36 +151,36 @@
 	<script src="js/jquery.history.js"></script>
 	<!-- application script for Charisma demo -->
 	<script src="js/charisma.js"></script>
-	
+
 	<script type="text/javascript">
     $(document).ready(function() {
     	 $('#checkLogin').click(function(event) { doCheckLogin()
     	 });
-    }); 
+    });
 
     function doCheckLogin(){
 
         	var $username=$("#username").val();
-        	var $password=$("#password").val();  
-		
-            $.get('/Login',{username:$username, password:$password},function(responseJson){})
+        	var $password=$("#password").val();
+
+            $.get('/stgeorge/Login',{username:$username, password:$password},function(responseJson){})
             .always(function(){document.getElementById("informaDiv").innerHTML = " Loading ..."})
             .done(function(responseJson){
                 $.each(responseJson, function(key, value) {
                     if(key == "Error"){
                         document.getElementById("informaDiv").className = "alert alert-error";
                         document.getElementById("informaDiv").innerHTML = value;
-                        }      
+                        }
 
  	                if(key == "Success"){
                         document.getElementById("informaDiv").className = "alert alert-success";
                         document.getElementById("informaDiv").innerHTML = value;
-     	                }      
+     	                }
 
  	                if(key == "session_id"){
                         window.location.href="index.jsp?session_id="+value;
-     	            }      
-                   
+     	            }
+
                    });
             });
         }
@@ -199,7 +199,7 @@
          });
      });
  });
-</script>	
-		
+</script>
+
 </body>
 </html>
